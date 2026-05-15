@@ -2,25 +2,27 @@
 
 # Linear Cantilever Beam Analysis using FEM
 
-## Overview
+---
+
+# Overview
 
 This project presents the Finite Element Analysis (FEM) of a cantilever beam subjected to a tip load.
 
 The beam problem is solved using:
 
-* MATLAB FEM implementation
-* Python postprocessing and comparison scripts
-* ANSYS Mechanical validation
-* Analytical beam theory validation
+- MATLAB FEM implementation
+- Python postprocessing and comparison scripts
+- ANSYS Mechanical validation
+- Analytical beam theory validation
 
 The objective of this project is to:
 
-* Implement FEM beam formulation from scratch
-* Compare different boundary condition implementation methods
-* Validate FEM results against analytical solution
-* Compare MATLAB and ANSYS solutions
-* Study computational efficiency
-* Demonstrate professional FEM workflow
+- Implement FEM formulation from scratch
+- Compare different boundary condition implementation methods
+- Validate FEM results against analytical solution
+- Compare MATLAB and ANSYS solutions
+- Study computational efficiency
+- Demonstrate professional FEM workflow
 
 ---
 
@@ -28,49 +30,51 @@ The objective of this project is to:
 
 A cantilever beam with fixed support at one end is subjected to a concentrated downward load at the free end.
 
-## Geometry
+---
 
-| Parameter             | Value         |
-| --------------------- | ------------- |
-| Length                | 300 mm        |
-| Cross Section         | 20 mm × 20 mm |
-| Area                  | 400 mm²       |
-| Second Moment of Area | 13333.33 mm⁴  |
+# Geometry
+
+| Parameter | Value |
+|---|---|
+| Length | 300 mm |
+| Cross Section | 20 mm × 20 mm |
+| Area | 400 mm² |
+| Second Moment of Area | 13333.33 mm⁴ |
 
 ---
 
-## Material Properties
+# Material Properties
 
-| Property            | Value            |
-| ------------------- | ---------------- |
-| Material            | Structural Steel |
-| Young’s Modulus (E) | 210000 MPa       |
-| Poisson Ratio       | 0.3              |
-
----
-
-## Loading
-
-| Parameter      | Value      |
-| -------------- | ---------- |
-| Load Type      | Point Load |
-| Load Magnitude | 1000 N     |
-| Load Location  | Free End   |
+| Property | Value |
+|---|---|
+| Material | Structural Steel |
+| Young’s Modulus (E) | 210000 MPa |
+| Poisson Ratio | 0.3 |
 
 ---
 
-## Mesh Information
+# Loading
 
-| Parameter          | Value |
-| ------------------ | ----- |
-| Element Size       | 5 mm  |
-| Number of Elements | 60    |
+| Parameter | Value |
+|---|---|
+| Load Type | Point Load |
+| Load Magnitude | 1000 N |
+| Load Location | Free End |
+
+---
+
+# Mesh Information
+
+| Parameter | Value |
+|---|---|
+| Element Size | 5 mm |
+| Number of Elements | 60 |
 
 The same mesh size is used for:
 
-* MATLAB beam FEM
-* ANSYS beam element model
-* ANSYS solid element model
+- MATLAB FEM model
+- ANSYS beam element model
+- ANSYS solid element model
 
 ---
 
@@ -78,16 +82,16 @@ The same mesh size is used for:
 
 The Euler-Bernoulli beam equation is:
 
-[
+```math
 EI \frac{d^4w}{dx^4} = q(x)
-]
+```
 
 Where:
 
-* (E) = Young’s modulus
-* (I) = second moment of area
-* (w) = beam deflection
-* (q(x)) = applied loading
+- \(E\) = Young’s modulus
+- \(I\) = second moment of area
+- \(w\) = beam deflection
+- \(q(x)\) = applied loading
 
 ---
 
@@ -97,19 +101,19 @@ Where:
 
 For a square cross section:
 
-[
+```math
 I = \frac{bh^3}{12}
-]
+```
 
 Substituting:
 
-[
+```math
 I = \frac{20 \times 20^3}{12}
-]
+```
 
-[
+```math
 I = 13333.33 \ mm^4
-]
+```
 
 ---
 
@@ -117,19 +121,21 @@ I = 13333.33 \ mm^4
 
 For a cantilever beam with tip load:
 
-[
+```math
 \delta_{max} = \frac{PL^3}{3EI}
-]
+```
 
 Substituting:
 
-[
-\delta_{max} = \frac{1000 \times 300^3}{3 \times 210000 \times 13333.33}
-]
+```math
+\delta_{max} =
+\frac{1000 \times 300^3}
+{3 \times 210000 \times 13333.33}
+```
 
-[
+```math
 \delta_{max} = 3.2143 \ mm
-]
+```
 
 ---
 
@@ -137,311 +143,257 @@ Substituting:
 
 Maximum bending stress:
 
-[
+```math
 \sigma_{max} = \frac{Mc}{I}
-]
+```
 
 Where:
 
-[
+```math
 M = PL
-]
+```
 
-[
+```math
 M = 1000 \times 300
-]
+```
 
-[
+```math
 M = 300000 \ Nmm
-]
+```
 
-[
+```math
 c = 10 \ mm
-]
+```
 
 Substituting:
 
-[
-\sigma_{max} = \frac{300000 \times 10}{13333.33}
-]
+```math
+\sigma_{max} =
+\frac{300000 \times 10}{13333.33}
+```
 
-[
+```math
 \sigma_{max} = 225 \ MPa
-]
+```
 
 ---
 
 # FEM Formulation
+
 The cantilever beam problem is solved using the Finite Element Method (FEM) based on 3D linear elasticity formulation.
 
 The implementation uses:
 
-8-node hexahedral isoparametric elements (HEX8)
-Gaussian numerical integration
-Jacobian coordinate transformation
-Strain-displacement matrix formulation
-3D isotropic constitutive law
+- 8-node hexahedral isoparametric elements (HEX8)
+- Gaussian numerical integration
+- Jacobian coordinate transformation
+- Strain-displacement matrix formulation
+- 3D isotropic constitutive law
 
 The element stiffness matrix is computed using:
 
-K
-e
-	​
-
-=∫
-V
-	​
-
-B
-T
-CBdV
+```math
+K_e = \int_V B^T C B \, dV
+```
 
 Where:
 
-B = strain-displacement matrix
-C = constitutive matrix
-V = element volume
-Isoparametric HEX8 Element
+- \(B\) = strain-displacement matrix
+- \(C\) = constitutive matrix
+- \(V\) = element volume
+
+---
+
+# Isoparametric HEX8 Element
 
 The solid element contains:
 
-8 nodes
-3 displacement DOFs per node
+- 8 nodes
+- 3 displacement DOFs per node
 
 Total degrees of freedom per element:
 
-24=8
-times3
+```math
+24 = 8 \times 3
+```
 
 The nodal displacement vector becomes:
 
-q
-e
-	​
+```math
+q_e =
+[w_1,u_1,v_1,\dots,w_8,u_8,v_8]^T
+```
 
-=[w
-1
-	​
+---
 
-,u
-1
-	​
-
-,v
-1
-	​
-
-,...,w
-8
-	​
-
-,u
-8
-	​
-
-,v
-8
-	​
-
-]
-T
-Shape Functions
+# Shape Functions
 
 The geometry and displacement field are interpolated using trilinear shape functions:
 
-N
-i
-	​
-
-(ξ,η,ζ)=
-8
-1
-	​
-
-(1+ξ
-i
-	​
-
-ξ)(1+η
-i
-	​
-
-η)(1+ζ
-i
-	​
-
-ζ)
+```math
+N_i(\xi,\eta,\zeta)
+=
+\frac{1}{8}
+(1+\xi_i\xi)
+(1+\eta_i\eta)
+(1+\zeta_i\zeta)
+```
 
 Where:
 
-ξ,η,ζ are natural coordinates
-N
-i
-	​
-
- are interpolation functions
+- \(\xi,\eta,\zeta\) are natural coordinates
+- \(N_i\) are interpolation functions
 
 The implementation computes derivatives of shape functions with respect to natural coordinates:
 
-∂ξ
-∂N
-	​
+```math
+\frac{\partial N}{\partial \xi},
+\quad
+\frac{\partial N}{\partial \eta},
+\quad
+\frac{\partial N}{\partial \zeta}
+```
 
-,
-∂η
-∂N
-	​
+---
 
-,
-∂ζ
-∂N
-	​
-
-Gaussian Integration
+# Gaussian Integration
 
 The stiffness matrix integration is performed numerically using 2×2×2 Gauss quadrature.
 
 The Gauss points used are:
 
-ξ
-G
-	​
-
-=±
-3
-	​
-
-1
-	​
-
+```math
+\xi_G = \pm \frac{1}{\sqrt{3}}
+```
 
 Total integration points:
 
-2×2×2=8
-Jacobian Transformation
+```math
+2 \times 2 \times 2 = 8
+```
+
+---
+
+# Jacobian Transformation
 
 The Jacobian matrix transforms natural coordinates into physical coordinates:
 
-J=
-∂(ξ,η,ζ)
-∂(x,y,z)
-	​
-
+```math
+J =
+\frac{\partial(x,y,z)}
+{\partial(\xi,\eta,\zeta)}
+```
 
 The Jacobian is computed as:
 
-J=N
-,xi
-	​
-
-cdotx
+```math
+J = N_{,\xi} \cdot x
+```
 
 Where:
 
-N
-,xi
-	​
-
- = derivatives of shape functions
-x = nodal coordinates
+- \(N_{,\xi}\) = derivatives of shape functions
+- \(x\) = nodal coordinates
 
 The determinant of the Jacobian:
 
+```math
 det(J)
+```
 
 is used for volume transformation during integration.
 
-Constitutive Matrix
+---
+
+# Constitutive Matrix
 
 The constitutive matrix corresponds to 3D isotropic linear elasticity:
 
-σ=Cε
+```math
+\sigma = C\varepsilon
+```
 
 The constitutive matrix is constructed using:
 
-Young’s modulus E
-Poisson ratio ν
+- Young’s modulus \(E\)
+- Poisson ratio \(\nu\)
 
 The formulation includes:
 
-Normal stresses
-Shear stresses
+- Normal stresses
+- Shear stresses
 
 for full three-dimensional elasticity.
 
-Strain-Displacement Matrix (B-Matrix)
+---
+
+# Strain-Displacement Matrix (B-Matrix)
 
 The strain-displacement matrix relates nodal displacements to strains:
 
-ε=Bu
+```math
+\varepsilon = Bu
+```
 
 The B-matrix contains:
 
-Normal strain terms
-Shear strain terms
+- Normal strain terms
+- Shear strain terms
 
 The matrix size is:
 
-B∈R
-6times24
-Element Stiffness Matrix Computation
+```math
+B \in \mathbb{R}^{6 \times 24}
+```
+
+---
+
+# Element Stiffness Matrix Computation
 
 At each Gauss point, the element stiffness contribution is computed as:
 
-K
-e
-	​
-
-=∑
-GP
-	​
-
-B
-T
-CBdet(J)w
-i
-	​
-
+```math
+K_e =
+\sum_{GP}
+B^T C B \ det(J) w_i
+```
 
 Where:
 
-B
-T
- = transpose of strain-displacement matrix
-C = constitutive matrix
-det(J) = Jacobian determinant
-w
-i
-	​
-
- = Gauss integration weights
+- \(B^T\) = transpose of strain-displacement matrix
+- \(C\) = constitutive matrix
+- \(det(J)\) = Jacobian determinant
+- \(w_i\) = Gauss integration weights
 
 The final element stiffness matrix has size:
 
-K
-e
-	​
+```math
+K_e \in \mathbb{R}^{24 \times 24}
+```
 
-∈R
-24times24
-Global Assembly
+---
+
+# Global Assembly
 
 The global stiffness matrix is assembled using element connectivity:
 
-K=∑K
-e
-	​
-
+```math
+K = \sum K_e
+```
 
 The final FEM system becomes:
 
-Ku=F
+```math
+Ku = F
+```
 
 Where:
 
-K = global stiffness matrix
-u = displacement vector
-F = external force vector
+- \(K\) = global stiffness matrix
+- \(u\) = displacement vector
+- \(F\) = external force vector
+
+---
 
 # MATLAB Implementation
 
@@ -449,36 +401,36 @@ Two different approaches were implemented for applying boundary conditions.
 
 ---
 
-## Method 1 — Delete Row and Column Method
+# Method 1 — Delete Row and Column Method
 
 Boundary conditions are imposed by deleting the rows and columns corresponding to constrained degrees of freedom.
 
-### Results
+## Results
 
-| Quantity           | Value      |
-| ------------------ | ---------- |
+| Quantity | Value |
+|---|---|
 | Maximum Deflection | -3.2539 mm |
-| Computation Time   | 14.835 s   |
+| Computation Time | 14.835 s |
 
 ---
 
-## Method 2 — Higher Stiffness Method
+# Method 2 — Higher Stiffness Method
 
 Boundary conditions are imposed using a very large stiffness value at constrained DOFs.
 
-### Results
+## Results
 
-| Quantity           | Value      |
-| ------------------ | ---------- |
+| Quantity | Value |
+|---|---|
 | Maximum Deflection | -3.2539 mm |
-| Computation Time   | 1.58 s     |
+| Computation Time | 1.58 s |
 
 ---
 
-## Total MATLAB Runtime
+# Total MATLAB Runtime
 
-| Quantity   | Value   |
-| ---------- | ------- |
+| Quantity | Value |
+|---|---|
 | Total Time | 55.52 s |
 
 ---
@@ -487,36 +439,36 @@ Boundary conditions are imposed using a very large stiffness value at constraine
 
 The same cantilever beam problem was solved in ANSYS Mechanical using:
 
-* Beam elements
-* Solid elements
+- Beam elements
+- Solid elements
 
 ---
 
-## ANSYS Solid Element Result
+# ANSYS Solid Element Result
 
-| Quantity           | Value      |
-| ------------------ | ---------- |
+| Quantity | Value |
+|---|---|
 | Maximum Deflection | -3.3705 mm |
 
 ---
 
-## ANSYS Beam Element Result
+# ANSYS Beam Element Result
 
-| Quantity           | Value      |
-| ------------------ | ---------- |
+| Quantity | Value |
+|---|---|
 | Maximum Deflection | -3.3866 mm |
 
 ---
 
 # Result Comparison
 
-| Method                         | Maximum Deflection (mm) |
-| ------------------------------ | ----------------------- |
-| Analytical Solution            | -3.2143                 |
-| MATLAB FEM (Delete Row/Column) | -3.2539                 |
-| MATLAB FEM (Higher Stiffness)  | -3.2539                 |
-| ANSYS Solid Element            | -3.3705                 |
-| ANSYS Beam Element             | -3.3866                 |
+| Method | Maximum Deflection (mm) |
+|---|---|
+| Analytical Solution | -3.2143 |
+| MATLAB FEM (Delete Row/Column) | -3.2539 |
+| MATLAB FEM (Higher Stiffness) | -3.2539 |
+| ANSYS Solid Element | -3.3705 |
+| ANSYS Beam Element | -3.3866 |
 
 ---
 
@@ -524,37 +476,46 @@ The same cantilever beam problem was solved in ANSYS Mechanical using:
 
 ## MATLAB FEM Error
 
-[
-\text{Error} = \frac{|3.2539 - 3.2143|}{3.2143} \times 100
-]
+```math
+\text{Error} =
+\frac{|3.2539 - 3.2143|}
+{3.2143}
+\times 100
+```
 
-[
-\text{Error} = 1.23%
-]
+```math
+\text{Error} = 1.23\%
+```
 
 ---
 
 ## ANSYS Solid Element Error
 
-[
-\text{Error} = \frac{|3.3705 - 3.2143|}{3.2143} \times 100
-]
+```math
+\text{Error} =
+\frac{|3.3705 - 3.2143|}
+{3.2143}
+\times 100
+```
 
-[
-\text{Error} = 4.86%
-]
+```math
+\text{Error} = 4.86\%
+```
 
 ---
 
 ## ANSYS Beam Element Error
 
-[
-\text{Error} = \frac{|3.3866 - 3.2143|}{3.2143} \times 100
-]
+```math
+\text{Error} =
+\frac{|3.3866 - 3.2143|}
+{3.2143}
+\times 100
+```
 
-[
-\text{Error} = 5.36%
-]
+```math
+\text{Error} = 5.36\%
+```
 
 ---
 
@@ -567,12 +528,18 @@ The same cantilever beam problem was solved in ANSYS Mechanical using:
 │
 ├── matlab/
 │   ├── main.m
-│   ├── beam_element.m
+│   ├── material.m
+│   ├── geometry.m
+│   ├── mesh_hex8.m
+│   ├── boundary.m
+│   ├── force.m
+│   ├── element.m
+│   ├── stiff.m
 │   ├── assemble_global.m
-│   ├── apply_boundary_conditions.m
-│   ├── solve_system.m
-│   ├── stress_recovery.m
-│   ├── validation.m
+│   ├── force_global.m
+│   ├── process_boundV1.m
+│   ├── process_boundV2.m
+│   ├── Plot_Def_3D.m
 │   └── postprocess.m
 │
 ├── python/
@@ -604,32 +571,33 @@ The same cantilever beam problem was solved in ANSYS Mechanical using:
 
 # MATLAB Files Description
 
-| File                        | Purpose                               |
-| --------------------------- | ------------------------------------- |
-| main.m                      | Main simulation driver                |
-| material.m                  | Contains Material Properties          |
-| geometry.m                  | Defined length and cross-section      |
-| mesh_hex8.m                 | Meshing definition                    |
-| boundary.m                  | Contains dirichlet BC                 |
-| force.m                     | Neumann Boundary condition            |
-| element.m                   | Element Definition                    |
-| assemble_global.m           | Assembles global stiffness matrix     |
-| force_global.m              | Assembles force vector                |
-| process_boundV1.m           | Delete rows and column                |
-| process_boundV2.m           | Higher Stiffness Method               |
-| Plot_Def_3D.m               | Plot Deformed Shape                   |
-| postprocess.m               | Generates plots and output            |
+| File | Purpose |
+|---|---|
+| main.m | Main simulation driver |
+| material.m | Material properties |
+| geometry.m | Geometry definition |
+| mesh_hex8.m | HEX8 mesh generation |
+| boundary.m | Dirichlet boundary conditions |
+| force.m | Neumann boundary conditions |
+| element.m | Element definition |
+| stiff.m | Computes element stiffness matrix |
+| assemble_global.m | Global stiffness assembly |
+| force_global.m | Global force assembly |
+| process_boundV1.m | Delete row and column method |
+| process_boundV2.m | Higher stiffness method |
+| Plot_Def_3D.m | Deformed shape visualization |
+| postprocess.m | Result visualization |
 
 ---
 
 # Python Files Description
 
-| File                   | Purpose                        |
-| ---------------------- | ------------------------------ |
-| convergence_plot.py    | Mesh convergence visualization |
-| comparison_plot.py     | MATLAB vs ANSYS comparison     |
-| validation_analysis.py | Error analysis                 |
-| postprocess.py         | Generates graphs and plots     |
+| File | Purpose |
+|---|---|
+| convergence_plot.py | Mesh convergence visualization |
+| comparison_plot.py | MATLAB vs ANSYS comparison |
+| validation_analysis.py | Error analysis |
+| postprocess.py | Generates plots and graphs |
 
 ---
 
@@ -637,12 +605,12 @@ The same cantilever beam problem was solved in ANSYS Mechanical using:
 
 The ANSYS validation includes:
 
-1. Geometry creation
-2. Material assignment
-3. Mesh generation
-4. Static structural setup
-5. Beam and solid element comparison
-6. Postprocessing
+1. Geometry creation  
+2. Material assignment  
+3. Mesh generation  
+4. Static structural setup  
+5. Beam and solid element comparison  
+6. Postprocessing  
 
 ---
 
@@ -650,23 +618,26 @@ The ANSYS validation includes:
 
 This project demonstrates:
 
-* FEM beam formulation
-* Matrix assembly procedures
-* Boundary condition implementation methods
-* Computational efficiency comparison
-* Validation against analytical solutions
-* ANSYS verification workflow
-* Professional FEM documentation
+- FEM formulation using HEX8 elements
+- Gaussian numerical integration
+- Jacobian transformation
+- B-matrix formulation
+- Matrix assembly procedures
+- Boundary condition implementation methods
+- Computational efficiency comparison
+- Validation against analytical solutions
+- ANSYS verification workflow
+- Professional FEM documentation
 
 ---
 
 # Conclusions
 
-* Both MATLAB methods produced identical displacement results.
-* The higher stiffness method was computationally faster.
-* MATLAB FEM showed very good agreement with analytical beam theory.
-* ANSYS beam and solid models validated the numerical implementation.
-* Small differences arise due to element formulation and numerical approximations.
+- Both MATLAB methods produced identical displacement results.
+- The higher stiffness method was computationally faster.
+- MATLAB FEM showed very good agreement with analytical beam theory.
+- ANSYS beam and solid models validated the numerical implementation.
+- Small differences arise due to element formulation and numerical approximations.
 
 ---
 
@@ -674,12 +645,12 @@ This project demonstrates:
 
 Planned future extensions include:
 
-* 2D elasticity formulation
-* Geometric nonlinearity
-* Contact mechanics
-* Hyperelastic materials
-* Modal analysis
-* Parallel FEM implementation
+- Geometric nonlinearity
+- Material nonlinearity
+- Contact mechanics
+- Hyperelastic materials
+- Modal analysis
+- Parallel FEM implementation
 
 ---
 
@@ -687,20 +658,19 @@ Planned future extensions include:
 
 Musharraf Khan
 
-M.Sc. Computational Methods in Engineering
+M.Sc. Computational Methods in Engineering  
 Otto von Guericke University Magdeburg
 
 ---
 
 # Tools Used
 
-* MATLAB
-* Python
-* ANSYS Mechanical
+- MATLAB
+- Python
+- ANSYS Mechanical
 
 ---
 
 # License
 
 This project is licensed under the MIT License.
-
