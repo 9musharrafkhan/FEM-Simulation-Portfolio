@@ -68,7 +68,7 @@ A cantilever beam with fixed support at one end is subjected to a concentrated d
 | Parameter | Value |
 |---|---|
 | Element Size | 5 mm |
-| Number of Elements | 60 |
+| Number of Elements | 960 |
 
 The same mesh size is used for:
 
