@@ -86,7 +86,7 @@ Fixed support applied at left face of beam.
 
 # Mesh Information
 
-| Mesh Size | Nodes | Elements in Solid Model | Elements in Beam Model
+| Mesh Size | Elements in Solid Model | Elements in Beam Model
 |---|---|---|---|
 | 20 mm | 15 | 15 |
 | 10 mm | 120 | 30 |
