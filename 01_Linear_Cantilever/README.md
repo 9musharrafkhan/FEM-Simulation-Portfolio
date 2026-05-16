@@ -586,17 +586,6 @@ The same cantilever beam problem was solved in ANSYS Mechanical using:
 
 ---
 
-# Python Files Description
-
-| File | Purpose |
-|---|---|
-| convergence_plot.py | Mesh convergence visualization |
-| comparison_plot.py | MATLAB vs ANSYS comparison |
-| validation_analysis.py | Error analysis |
-| postprocess.py | Generates plots and graphs |
-
----
-
 # ANSYS Workflow
 
 The ANSYS validation includes:
