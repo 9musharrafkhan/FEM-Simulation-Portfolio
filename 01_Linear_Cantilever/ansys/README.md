@@ -87,11 +87,10 @@ Fixed support applied at left face of beam.
 # Mesh Information
 
 | Mesh Size | Elements in Solid Model | Elements in Beam Model |
-|---|---|---|---|
+|---|---|---|
 | 20 mm | 15 | 15 |
 | 10 mm | 120 | 30 |
 | 5 mm | 960 | 60 |
-
 
 The final validation mesh size used was 5 mm.
 
