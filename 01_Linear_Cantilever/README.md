@@ -542,29 +542,25 @@ The same cantilever beam problem was solved in ANSYS Mechanical using:
 │   ├── Plot_Def_3D.m
 │   └── postprocess.m
 │
-├── python/
-│   ├── convergence_plot.py
-│   ├── comparison_plot.py
-│   ├── validation_analysis.py
-│   └── postprocess.py
-│
 ├── ansys/
 │   ├── cantilever_beam.wbpj
-│   ├── screenshots/
-│   └── exported_results/
+│   ├── project_files/
+│   ├── mesh/
+│   └── convergence_study/
+│
+├── python/
+│   └── convergence_plot.py
 │
 ├── results/
-│   ├── displacement_comparison.png
-│   ├── stress_distribution.png
-│   ├── convergence_plot.png
-│   └── analytical_vs_FEM.png
+│   ├── matlab_stress_distribution.png
+│   ├── matlab_deformation_plot.png
+│   └── convergence_plot.png
 │
-├── report/
-│   └── cantilever_report.pdf
+├── geometry/
+│   └── cantilever_beam_geometry.png
 │
 └── data/
-    ├── analytical_solution.csv
-    └── FEM_results.csv
+    └── convergence_plot.csv
 ```
 
 ---
