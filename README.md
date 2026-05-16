@@ -94,10 +94,10 @@ The goal of this repository is to develop and demonstrate strong understanding o
 ```text
 FEM-Simulation-Portfolio/
 │
-├── docs/
-├── matlab/
-├── python/
-├── ansys/
-├── data/
-├── figures/
-└── tests/# FEM-Simulation-Portfolio
+├── 01_Linear_Cantilever/
+├── 02_Truss_Structure/
+├── 03_/
+├── 04_/
+├── 05_/
+├── 06_/
+└── 07_/
