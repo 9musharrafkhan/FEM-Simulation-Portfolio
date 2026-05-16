@@ -86,11 +86,11 @@ Fixed support applied at left face of beam.
 
 # Mesh Information
 
-| Mesh Size | Nodes | Elements |
-|---|---|---|
-| 20 mm | XXX | XXX |
-| 10 mm | XXX | XXX |
-| 5 mm | XXX | XXX |
+| Mesh Size | Nodes | Elements in Solid Model | Elements in Beam Model
+|---|---|---|---|
+| 20 mm | 15 | 15 |
+| 10 mm | 120 | 30 |
+| 5 mm | 960 | 60 |
 
 The final validation mesh size used was 5 mm.
 
@@ -153,3 +153,6 @@ The results showed good agreement.
 | convergence_study/ | Mesh convergence results |
 
 ---
+
+
+
