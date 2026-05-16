@@ -92,6 +92,7 @@ Fixed support applied at left face of beam.
 | 10 mm | 120 | 30 |
 | 5 mm | 960 | 60 |
 
+
 The final validation mesh size used was 5 mm.
 
 ---
