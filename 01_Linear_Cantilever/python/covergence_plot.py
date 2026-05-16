@@ -9,7 +9,7 @@ plt.plot(data["element_size"],
 
 plt.xlabel("Element Size (mm)")
 plt.ylabel("Tip Deflection (mm)")
-plt.title("Mesh Convergence Study")
+plt.title("Mesh Convergence Study with Matlab")
 
 plt.grid(True)
 
