@@ -1,0 +1,11 @@
+/COM,ANSYS RELEASE 2026 R1           BUILD 26.1      UP20260202       15:17:10
+
+ *** FATAL ***                           ELAPSED TIME =       5.982   TIME= 15:17:12
+ The version size limits( NODES )have been exceeded.                     
+  Contact your Ansys support person for more information.                
+
+ ************************************************************************
+ The above error is non-recoverable by ANSYS                             
+  ANSYS run terminated by the indicated error                            
+  Current data base saved if possible.                                   
+ ************************************************************************

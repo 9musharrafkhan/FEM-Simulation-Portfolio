@@ -1,0 +1,48 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+template1 = GetTemplate(TemplateName="Geometry")
+system1 = template1.CreateSystem()
+system1.DisplayText = "Solid Element"
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+template2 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+geometryComponent1 = system1.GetComponent(Name="Geometry")
+system2 = template2.CreateSystem(
+    ComponentsToShare=[geometryComponent1],
+    Position="Right",
+    RelativeTo=system1)
+Save(Overwrite=True)
+modelComponent1 = system2.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system2.GetContainer(ComponentName="Model")
+model1.Edit()
+system3 = template1.CreateSystem(
+    Position="Below",
+    RelativeTo=system1)
+system3.DisplayText = "Beam Element"
+geometry2 = system3.GetContainer(ComponentName="Geometry")
+geometryProperties1 = geometry2.GetGeometryProperties()
+geometryProperties1.GeometryImportLineBodies = True
+geometry2.Edit()
+geometry2.Exit()
+geometryComponent2 = system3.GetComponent(Name="Geometry")
+system4 = template2.CreateSystem(
+    ComponentsToShare=[geometryComponent2],
+    Position="Right",
+    RelativeTo=system3)
+model1.Exit()
+solutionComponent1 = system2.GetComponent(Name="Solution")
+solutionComponent1.Update(AllDependencies=True)
+model1.Edit()
+model1.Exit()
+Save(Overwrite=True)
+modelComponent2 = system4.GetComponent(Name="Model")
+modelComponent2.Refresh()
+model2 = system4.GetContainer(ComponentName="Model")
+model2.Edit()
+model2.Exit()
+Save(Overwrite=True)
