@@ -142,17 +142,5 @@ The results showed good agreement.
 
 ---
 
-# Files Included
-
-| Folder | Description |
-|---|---|
-| geometry/ | Geometry screenshots and CAD |
-| mesh/ | Mesh screenshots and statistics |
-| boundary_conditions/ | BC setup screenshots |
-| results/ | Deformation and stress plots |
-| convergence_study/ | Mesh convergence results |
-
----
-
 
 
