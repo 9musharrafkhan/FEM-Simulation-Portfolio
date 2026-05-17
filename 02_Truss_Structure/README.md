@@ -83,6 +83,7 @@ A = 1100 \ mm^2
 | Joint D | 10 kN inclined load |
 | Joint F | 20 kN inclined load |
 | Joint E | 10 kN vertical downward |
+| Joint G | 10 kN inclined load |
 
 ---
 
@@ -262,9 +263,6 @@ Since LINK180 truss elements were used, each truss member was modeled using a si
 |---|---|
 | Mesh Type | Line Body Mesh |
 | Number of Divisions | 1 |
-| Element Size Control | Program Controlled |
-| Number of Nodes | XXXX |
-| Number of Elements | XXXX |
 
 ---
 
@@ -279,6 +277,7 @@ Since LINK180 truss elements were used, each truss member was modeled using a si
 
 - Inclined load at joint D
 - Inclined load at joint F
+- Inclined load at joint G
 - Vertical load at joint E
 
 ---
@@ -342,41 +341,25 @@ Truss_Structure_Analysis/
 ├── ansys/
 │   │
 │   ├── project_files/
-│   │   ├── truss_analysis.wbpj
-│   │   └── solver_files/
-│   │
-│   ├── geometry/
-│   │   ├── truss_geometry.png
-│   │   ├── dimensions.png
-│   │   └── truss_geometry.step
+│   │   ├── truss.wbpj
+│   │   └── truss_files/
 │   │
 │   ├── mesh/
-│   │   ├── mesh.png
-│   │   ├── mesh_quality.png
-│   │   └── mesh_statistics.txt
+│   │   └── mesh_size.PNG
 │   │
 │   ├── boundary_conditions/
-│   │   ├── roller_support.png
-│   │   ├── hinge_support.png
-│   │   ├── load_application.png
-│   │   └── BC_summary.txt
+│   │   └── boundary_conditions.PNG
 │   │
 │   ├── results/
-│   │   ├── total_deformation.png
-│   │   ├── axial_force.png
-│   │   ├── reaction_forces.png
-│   │   ├── member_force_probe.png
-│   │   └── probe_results.csv
+│   │   ├── axial_force_in_truss_BD.PNG
+│   │   ├── axial_force_in_truss_CE.PNG
+│   │   ├── reaction_forces.PNG
+│   │   └── directional_deformation.PNG
 │   │
 │   └── README_ANSYS.md
 │
-├── report/
-│   └── truss_structure_report.pdf
-│
-└── figures/
-    ├── analytical_solution.png
-    ├── stress_distribution.png
-    └── deformation_plot.png
+└── geometry/
+    └── truss_geometry.pdf
 ```
 
 ---
@@ -394,18 +377,6 @@ The ANSYS workflow includes:
 7. Axial force extraction  
 8. Reaction force evaluation  
 9. Validation with analytical solution  
-
----
-
-# Files Included
-
-| Folder | Description |
-|---|---|
-| geometry/ | Geometry screenshots and CAD |
-| mesh/ | Mesh screenshots and statistics |
-| boundary_conditions/ | Boundary condition setup |
-| results/ | Deformation and axial force results |
-| report/ | Final engineering report |
 
 ---
 
