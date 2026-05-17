@@ -11,7 +11,6 @@ The analysis includes:
 - Static structural analysis
 - Stress and deformation evaluation
 - Truss member force investigation
-- Mesh convergence study
 - Validation using analytical calculations
 
 The objective of this project is to:
@@ -29,11 +28,11 @@ A planar truss structure subjected to multiple inclined loads is analyzed using 
 
 The truss consists of:
 
-- Pin and roller supports
+- Roller and hinge supports
 - Multiple inclined members
 - External concentrated loads
 
-The structure is modeled using truss/beam elements.
+The structure is modeled using truss/link elements.
 
 ---
 
@@ -81,9 +80,9 @@ A = 1100 \ mm^2
 
 | Location | Load |
 |---|---|
-| Joint D | 10 kN |
-| Joint F | 20 kN |
-| Joint E | 10 kN |
+| Joint D | 10 kN inclined load |
+| Joint F | 20 kN inclined load |
+| Joint E | 10 kN vertical downward |
 
 ---
 
@@ -91,8 +90,8 @@ A = 1100 \ mm^2
 
 | Support | Type |
 |---|---|
-| Joint A | Pinned Support |
-| Joint G | Roller Support |
+| Joint A | Roller Support |
+| Joint G | Hinge Support |
 
 ---
 
@@ -248,33 +247,24 @@ The truss structure was analyzed using ANSYS Mechanical Static Structural.
 
 | Parameter | Value |
 |---|---|
-| Element Type | LINK180 / BEAM188 |
-| Formulation | Linear Structural |
+| Element Type | LINK180 |
+| Formulation | 3D Spar / Truss Element |
+| Degrees of Freedom | Translational DOFs |
+| Behavior | Axial Force Only |
 
 ---
 
 # Mesh Information
 
+Since LINK180 truss elements were used, each truss member was modeled using a single finite element.
+
 | Parameter | Value |
 |---|---|
-| Mesh Type | Structured |
-| Element Size | XX mm |
+| Mesh Type | Line Body Mesh |
+| Number of Divisions | 1 |
+| Element Size Control | Program Controlled |
 | Number of Nodes | XXXX |
 | Number of Elements | XXXX |
-
----
-
-# Mesh Convergence Study
-
-A mesh convergence study was performed using multiple mesh densities.
-
-| Mesh Size | Elements | Maximum Deformation |
-|---|---|---|
-| Coarse | XXXX | XXXX |
-| Medium | XXXX | XXXX |
-| Fine | XXXX | XXXX |
-
-The solution converged for the fine mesh.
 
 ---
 
@@ -282,25 +272,39 @@ The solution converged for the fine mesh.
 
 ## Support Conditions
 
-- Pinned support at joint A
-- Roller support at joint G
+- Roller support at joint A
+- Hinge support at joint G
 
 ## External Loads
 
-- 10 kN at joint D
-- 20 kN at joint F
-- 10 kN at joint E
+- Inclined load at joint D
+- Inclined load at joint F
+- Vertical load at joint E
 
 ---
 
-# Results
+# ANSYS Results
 
 The following results were obtained from ANSYS:
 
-- Total deformation
-- Axial stress distribution
-- Reaction forces
-- Member force distribution
+| Quantity | ANSYS Result |
+|---|---|
+| Reaction Force at A | 14.8 kN |
+| Force in Member BD | -29.7 kN |
+| Force in Member CE | 25.7 kN |
+
+---
+
+# Member Force Interpretation
+
+| Member | Force | Nature |
+|---|---|---|
+| BD | -29.7 kN | Compression |
+| CE | 25.7 kN | Tension |
+
+Negative sign indicates compressive axial force.
+
+Positive sign indicates tensile axial force.
 
 ---
 
@@ -308,20 +312,23 @@ The following results were obtained from ANSYS:
 
 The ANSYS results were compared with analytical truss calculations.
 
-The comparison showed good agreement for:
+| Quantity | Analytical | ANSYS | Difference |
+|---|---|---|---|
+| Reaction at A | 14.9 kN | 14.8 kN | Very Small |
+| Force in BD | 29.8 kN | 29.7 kN | Very Small |
+| Force in CE | 25.8 kN | 25.7 kN | Very Small |
 
-- Support reactions
-- Member forces
-- Structural behavior
+The ANSYS solution showed excellent agreement with analytical calculations.
 
 ---
 
 # Key Observations
 
-- Maximum stresses occurred in inclined members near load application.
-- Compression and tension members matched analytical predictions.
-- Deformation pattern matched expected truss behavior.
-- Numerical results converged with mesh refinement.
+- Compression occurred in member BD.
+- Tension occurred in member CE.
+- Support reactions matched analytical equilibrium equations.
+- LINK180 elements efficiently modeled axial truss behavior.
+- Single element per member was sufficient for truss force prediction.
 
 ---
 
@@ -344,29 +351,22 @@ Truss_Structure_Analysis/
 │   │   └── truss_geometry.step
 │   │
 │   ├── mesh/
-│   │   ├── coarse_mesh.png
-│   │   ├── medium_mesh.png
-│   │   ├── fine_mesh.png
+│   │   ├── mesh.png
 │   │   ├── mesh_quality.png
 │   │   └── mesh_statistics.txt
 │   │
 │   ├── boundary_conditions/
-│   │   ├── pinned_support.png
 │   │   ├── roller_support.png
+│   │   ├── hinge_support.png
 │   │   ├── load_application.png
 │   │   └── BC_summary.txt
 │   │
 │   ├── results/
 │   │   ├── total_deformation.png
-│   │   ├── axial_stress.png
+│   │   ├── axial_force.png
 │   │   ├── reaction_forces.png
-│   │   ├── member_forces.png
+│   │   ├── member_force_probe.png
 │   │   └── probe_results.csv
-│   │
-│   ├── convergence_study/
-│   │   ├── convergence.csv
-│   │   ├── convergence_plot.png
-│   │   └── convergence_summary.md
 │   │
 │   └── README_ANSYS.md
 │
@@ -387,12 +387,12 @@ The ANSYS workflow includes:
 
 1. Geometry creation  
 2. Material assignment  
-3. Element selection  
+3. LINK180 element definition  
 4. Mesh generation  
 5. Boundary condition application  
 6. Static structural solution  
-7. Postprocessing  
-8. Convergence study  
+7. Axial force extraction  
+8. Reaction force evaluation  
 9. Validation with analytical solution  
 
 ---
@@ -404,8 +404,7 @@ The ANSYS workflow includes:
 | geometry/ | Geometry screenshots and CAD |
 | mesh/ | Mesh screenshots and statistics |
 | boundary_conditions/ | Boundary condition setup |
-| results/ | Deformation and stress results |
-| convergence_study/ | Mesh convergence analysis |
+| results/ | Deformation and axial force results |
 | report/ | Final engineering report |
 
 ---
@@ -416,9 +415,9 @@ This project demonstrates:
 
 - Truss structural analysis
 - Static equilibrium validation
-- FEM structural simulation
-- Mesh convergence study
-- Stress and deformation evaluation
+- Axial force prediction
+- Compression and tension member identification
+- LINK180 truss element formulation
 - ANSYS Mechanical workflow
 - Engineering result interpretation
 
