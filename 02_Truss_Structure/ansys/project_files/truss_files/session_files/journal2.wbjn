@@ -1,0 +1,62 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+system1 = GetSystem(Name="SYS")
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+system2 = GetSystem(Name="Geom")
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+model1.Exit()
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+geometryComponent1 = system2.GetComponent(Name="Geometry")
+system3 = template1.CreateSystem(
+    ComponentsToShare=[geometryComponent1],
+    Position="Below",
+    RelativeTo=system1)
+modelComponent1 = system3.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model2 = system3.GetContainer(ComponentName="Model")
+model2.Edit()
+Save(Overwrite=True)
+geometry1.Exit()
+geometry1.Edit(IsSpaceClaimGeometry=True)
+geometry1.Exit()
+model2.Exit()
+template2 = GetTemplate(TemplateName="Geometry")
+system4 = template2.CreateSystem(
+    Position="Below",
+    RelativeTo=system2)
+geometry2 = system4.GetContainer(ComponentName="Geometry")
+geometry2.Edit(IsSpaceClaimGeometry=True)
+geometry2.Exit()
+system4.Delete()
+system5 = template2.CreateSystem(
+    Position="Below",
+    RelativeTo=system2)
+geometry3 = system5.GetContainer(ComponentName="Geometry")
+geometry3.Edit(IsSpaceClaimGeometry=True)
+geometry3.Exit()
+Save(Overwrite=True)
+system5.Delete()
+system6 = template2.CreateSystem(
+    Position="Below",
+    RelativeTo=system3)
+geometry4 = system6.GetContainer(ComponentName="Geometry")
+geometry4.Edit(IsSpaceClaimGeometry=True)
+system3.Delete()
+geometryComponent2 = system6.GetComponent(Name="Geometry")
+system7 = template1.CreateSystem(
+    ComponentsToShare=[geometryComponent2],
+    Position="Right",
+    RelativeTo=system6)
+modelComponent2 = system7.GetComponent(Name="Model")
+modelComponent2.Refresh()
+model3 = system7.GetContainer(ComponentName="Model")
+model3.Edit()
+system1.Delete()
+system2.Delete()
+geometry4.Exit()
+Save(Overwrite=True)

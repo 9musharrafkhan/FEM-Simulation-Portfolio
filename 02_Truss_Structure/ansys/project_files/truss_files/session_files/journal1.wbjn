@@ -1,0 +1,48 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+fileType1 = GetFileType(Name="GeometryFileType")
+ImportFile(
+    FilePath="C:/Users/MK/Downloads/OFFICE CHAIR.STEP",
+    FileType=fileType1)
+system1 = GetSystem(Name="Geometry")
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+geometryComponent1 = system1.GetComponent(Name="Geometry")
+system2 = template1.CreateSystem(
+    ComponentsToShare=[geometryComponent1],
+    Position="Right",
+    RelativeTo=system1)
+modelComponent1 = system2.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system2.GetContainer(ComponentName="Model")
+model1.Edit()
+geometry1.Edit()
+geometry1.Exit()
+model1.Exit()
+system2.Delete()
+system1.Delete()
+template2 = GetTemplate(TemplateName="Geometry")
+system3 = template2.CreateSystem()
+geometry2 = system3.GetContainer(ComponentName="Geometry")
+geometry2.Edit()
+geometry2.Exit()
+geometryComponent2 = system3.GetComponent(Name="Geometry")
+system4 = template1.CreateSystem(
+    ComponentsToShare=[geometryComponent2],
+    Position="Right",
+    RelativeTo=system3)
+modelComponent2 = system4.GetComponent(Name="Model")
+modelComponent2.Refresh()
+model2 = system4.GetContainer(ComponentName="Model")
+model2.Edit()
+model2.Exit()
+model2.Edit()
+model2.Exit()
+model2.Edit()
+model2.Exit()
+Save(Overwrite=True)
