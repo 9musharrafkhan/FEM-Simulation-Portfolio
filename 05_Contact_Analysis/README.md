@@ -221,8 +221,8 @@ Used for:
 
 In ANSYS:
 
-- one surface is defined as CONTACT
-- the other as TARGET
+- one surface is defined as CONTACT (softer material)
+- the other as TARGET (stiffer or rigid body)
 
 ---
 
