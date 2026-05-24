@@ -1,0 +1,67 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+system1 = GetSystem(Name="Geom")
+system1.Copy(KeepConnections=True)
+system2 = GetSystem(Name="Geom 1")
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+system3 = GetSystem(Name="SYS")
+model1 = system3.GetContainer(ComponentName="Model")
+model1.Edit()
+geometry1.Exit()
+system2.Delete()
+system1.Copy(KeepConnections=True)
+system4 = GetSystem(Name="Geom 1")
+geometry2 = system4.GetContainer(ComponentName="Geometry")
+geometry2.Edit()
+geometry2.Exit()
+system3.Copy(KeepConnections=False)
+model1.Exit()
+Save(Overwrite=True)
+system5 = GetSystem(Name="SYS 1")
+system5.Copy(KeepConnections=True)
+system5.Delete()
+system6 = GetSystem(Name="SYS 2")
+system6.Delete()
+geometryComponent1 = system4.GetComponent(Name="Geometry")
+geometryComponent2 = system3.GetComponent(Name="Geometry")
+geometryComponent1.ReplaceWithShare(
+    TargetSystem=system4,
+    ComponentToShare=geometryComponent2,
+    SourceSystem=system3)
+system1.Delete()
+model1.Edit()
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system7 = template1.CreateSystem(
+    ComponentsToShare=[geometryComponent1],
+    Position="Right",
+    RelativeTo=system4)
+modelComponent1 = system7.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model2 = system7.GetContainer(ComponentName="Model")
+model2.Edit()
+model1.Exit()
+system4.Copy(KeepConnections=False)
+system8 = GetSystem(Name="Geom")
+geometry3 = system8.GetContainer(ComponentName="Geometry")
+geometry3.Edit()
+model2.Exit()
+geometry3.Exit()
+geometryComponent3 = system8.GetComponent(Name="Geometry")
+system9 = template1.CreateSystem(
+    ComponentsToShare=[geometryComponent3],
+    Position="Right",
+    RelativeTo=system8)
+modelComponent2 = system9.GetComponent(Name="Model")
+modelComponent2.Refresh()
+model3 = system9.GetContainer(ComponentName="Model")
+model3.Edit()
+system7.Delete()
+system4.Delete()
+system3.Delete()
+Save(Overwrite=True)
+model3.Exit()
+Save(Overwrite=True)
