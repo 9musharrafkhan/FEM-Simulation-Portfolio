@@ -172,16 +172,6 @@ The analysis was performed using ANSYS Mechanical Static Structural.
 
 ---
 
-# Material Properties
-
-| Property | Value |
-|---|---|
-| Material | Structural Steel / Concrete |
-| Young’s Modulus | User Defined |
-| Poisson Ratio | User Defined |
-
----
-
 # Geometry
 
 The geometry used in this project consists of two-dimensional structural domains.
