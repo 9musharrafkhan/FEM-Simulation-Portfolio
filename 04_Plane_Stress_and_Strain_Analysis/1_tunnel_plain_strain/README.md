@@ -159,6 +159,7 @@ Uniform pressure loading was applied from:
 - Top surface
 - Left boundary
 - Right boundary
+- Bottom fixed
 
 ---
 
