@@ -1,6 +1,4 @@
-# 03_Water_Foundation_Axisymmetric_Analysis
-
-# Axisymmetric Water Foundation Analysis using ANSYS
+# 1_Water_Fountain_Axisymmetric_Analysis
 
 ---
 
@@ -48,7 +46,7 @@ Geometry and dimensions are based on the attached engineering drawing. :contentR
 
 The geometry represents a rotationally symmetric water foundation profile.
 
-All dimensions are in mm. :contentReference[oaicite:1]{index=1}
+All dimensions are in mm. 
 
 ## Main Dimensions
 
@@ -66,7 +64,7 @@ All dimensions are in mm. :contentReference[oaicite:1]{index=1}
 
 # Material Properties
 
-Concrete material properties used in the analysis: :contentReference[oaicite:2]{index=2}
+Concrete material properties used in the analysis: 
 
 | Property | Value |
 |---|---|
@@ -275,7 +273,7 @@ The solution showed physically realistic structural response under hydrostatic l
 # Repository Structure
 
 ```text
-03_Water_Foundation_Axisymmetric_Analysis/
+1_Water_Fountain/
 │
 ├── README.md
 │
@@ -283,48 +281,28 @@ The solution showed physically realistic structural response under hydrostatic l
 │   │
 │   ├── project_files/
 │   │   ├── water_foundation.wbpj
-│   │   └── solver_files/
-│   │
-│   ├── geometry/
-│   │   ├── geometry.png
-│   │   ├── dimensions.png
-│   │   └── geometry.step
+│   │   └── water_fountain_files/
 │   │
 │   ├── mesh/
-│   │   ├── mapped_mesh.png
+│   │   ├── mesh_size.png
 │   │   ├── mesh_quality.png
-│   │   └── mesh_statistics.txt
+│   │   └── mesh_size_axisymmetric.png
 │   │
 │   ├── boundary_conditions/
-│   │   ├── fixed_support.png
-│   │   ├── frictionless_support.png
-│   │   ├── hydrostatic_pressure.png
-│   │   └── BC_summary.txt
+│   │   └── boundary_conditions.png
 │   │
 │   ├── results/
 │   │   ├── total_deformation.png
-│   │   ├── directional_deformation_Y.png
-│   │   ├── equivalent_stress.png
-│   │   ├── stress_probe.png
-│   │   └── result_summary.csv
+│   │   ├── directional_deformation.png
+│   │   └── equivalent_stress.png
 │   │
 │   ├── convergence_study/
-│   │   ├── convergence.csv
-│   │   ├── convergence_plot.png
-│   │   └── convergence_summary.md
+│   │   └── convergence_study.png
 │   │
-│   └── README_ANSYS.md
+│   └── README.md
 │
-├── report/
-│   └── water_foundation_report.pdf
-│
-├── figures/
-│   ├── deformation_plot.png
-│   ├── stress_distribution.png
-│   └── mesh_plot.png
-│
-└── references/
-    └── theory_notes/
+└── geometry/
+    └── fountain_geometry.pdf
 ```
 
 ---
@@ -343,19 +321,6 @@ The ANSYS workflow includes:
 8. Stress and deformation evaluation  
 9. Convergence study  
 10. Postprocessing and validation  
-
----
-
-# Files Included
-
-| Folder | Description |
-|---|---|
-| geometry/ | Geometry screenshots and CAD |
-| mesh/ | Mesh screenshots and statistics |
-| boundary_conditions/ | Boundary condition setup |
-| results/ | Stress and deformation results |
-| convergence_study/ | Mesh convergence analysis |
-| report/ | Final engineering report |
 
 ---
 
