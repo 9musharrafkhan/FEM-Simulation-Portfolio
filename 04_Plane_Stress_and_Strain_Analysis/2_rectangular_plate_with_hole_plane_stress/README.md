@@ -387,12 +387,6 @@ Otto von Guericke University Magdeburg
 
 ---
 
-# Reference Report
-
-Detailed project report uploaded by the author.
-
----
-
 # License
 
 This project is licensed under the MIT License.
