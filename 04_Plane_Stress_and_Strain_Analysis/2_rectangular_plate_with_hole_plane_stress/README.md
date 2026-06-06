@@ -66,15 +66,6 @@ The sharp corners of the rectangular hole create stress concentration regions, m
 | Hole Height | 30 mm           |
 | Hole Center | (100 mm, 50 mm) |
 
-Hole boundaries:
-
-```math
-x = 70 \text{ to } 130 \ mm
-```
-
-```math
-y = 35 \text{ to } 65 \ mm
-```
 
 ---
 
@@ -96,10 +87,6 @@ y = 35 \text{ to } 65 \ mm
 | --------- | ----------- |
 | Left Edge | Fully Fixed |
 
-```math
-u_x = 0,\quad u_y = 0
-```
-
 ---
 
 # Loading
@@ -110,9 +97,7 @@ u_x = 0,\quad u_y = 0
 
 Applied pressure:
 
-```math
-P = 100 \ MPa
-```
+P = 100  MPa
 
 ---
 
@@ -128,36 +113,6 @@ P = 100 \ MPa
 The rectangular hole was modeled by removing elements located inside the hole region.
 
 The mesh near the hole creates a staircase approximation of the rectangular geometry.
-
----
-
-# Governing Equations
-
-The analysis is based on linear elasticity theory.
-
----
-
-# Equilibrium Equation
-
-```math
-\nabla \cdot \sigma + b = 0
-```
-
----
-
-# Constitutive Relation
-
-```math
-\sigma = C \varepsilon
-```
-
----
-
-# Strain-Displacement Relation
-
-```math
-\varepsilon = Bu
-```
 
 ---
 
@@ -366,49 +321,22 @@ The results showed:
 ├── README.md
 │
 ├── matlab/
-│   ├── main.m
-│   ├── material.m
-│   ├── geometry.m
-│   ├── mesh_quad4.m
-│   ├── assemble_global.m
-│   ├── boundary_conditions.m
-│   ├── solve_system.m
-│   ├── stress_recovery.m
-│   ├── postprocess.m
-│   └── validation.m
+│   ├── simulation_plate_hole.m
+│   ├── geo_plate_hole.m
+│   ├── boundary_conditions_plate_hole.m
+│   └── four_node_membrane_iso_2_2.m
 │
 ├── ansys_apdl/
-│   ├── plate_hole.mac
-│   ├── mesh.png
-│   ├── stress_result.png
-│   ├── deformation_x.png
-│   └── deformation_y.png
+│   └── file.db
 │
 ├── ansys_workbench/
-│   ├── project_files/
-│   ├── mesh/
-│   ├── results/
-│   └── screenshots/
+│   ├── plate_files/
+│   └── plate.wbpj
 │
-├── report/
-│   └── rectangular_plate_hole_report.pdf
-│
-├── figures/
-│   ├── mesh_visualization.png
-│   ├── stress_distribution.png
-│   ├── deformation_plot.png
-│   └── comparison_plot.png
-│
-├── data/
-│   ├── matlab_results.csv
-│   ├── ansys_results.csv
-│   └── convergence.csv
-│
-└── python/
-    ├── comparison_plot.py
-    ├── convergence_plot.py
-    ├── validation_analysis.py
-    └── postprocess.py
+└── Results/
+    ├── stress.png
+    ├── x_deformation.png
+    └── y_deformation.png
 ```
 
 ---
