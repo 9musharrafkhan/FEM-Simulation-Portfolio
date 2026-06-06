@@ -1,0 +1,43 @@
+============================================================
+FEM SIMULATION RESULTS - RECTANGULAR PLATE WITH RECTANGULAR HOLE
+============================================================
+
+MATERIAL PROPERTIES
+-------------------
+Young's Modulus (E): 210000 MPa
+Poisson Ratio (nu): 0.30
+Thickness (h): 5.0 mm
+
+GEOMETRY
+--------
+Plate: 200 x 100 mm
+Rectangular Hole: 60 x 30 mm at center
+Hole position: x = 70 to 130 mm, y = 35 to 65 mm
+
+LOAD INFORMATION
+----------------
+Applied Pressure: 100 MPa
+Total Force: 50000.00 N
+
+MESH INFORMATION
+----------------
+Number of nodes: 5151
+Number of elements: 4580
+Number of integration points: 18320
+Degrees of freedom: 10302
+
+DISPLACEMENT RESULTS
+--------------------
+ux at (200,50) = 0.115844 mm
+uy at (200,50) = 0.000000 mm
+
+STRESS RESULTS
+--------------
+Maximum Von Mises Stress: 278.81 MPa
+Mean Von Mises Stress: 110.88 MPa
+Applied Pressure: 100 MPa
+
+STRESS STATISTICS
+-----------------
+Std Von Mises Stress: 26.69 MPa
+Min Von Mises Stress: 28.19 MPa

@@ -1,0 +1,16 @@
+/COM,ANSYS RELEASE 2026 R1           BUILD 26.1      UP20260202       16:08:11
+
+ *** WARNING ***                         ELAPSED TIME =       5.704   TIME= 16:08:13
+ The requested number of CPU cores for shared-memory parallel (4)        
+ exceeds the number of physical CPU cores that are available (2).  As    
+ the use of virtual CPU cores is not recommended, the number of CPU      
+ cores used will be 2.                                                   
+
+ *** WARNING ***                         ELAPSED TIME =       6.149   TIME= 16:08:13
+ The requested number of CPU cores for shared-memory parallel (4) cannot 
+ be greater than that specified by the command line option -NP (2).      
+ The number of CPU cores used will be left at 2.                         
+
+ *** ERROR ***                           ELAPSED TIME =      66.586   TIME= 16:09:13
+ This function requires defined lines.                                   
+  No lines are currently defined.                                        
