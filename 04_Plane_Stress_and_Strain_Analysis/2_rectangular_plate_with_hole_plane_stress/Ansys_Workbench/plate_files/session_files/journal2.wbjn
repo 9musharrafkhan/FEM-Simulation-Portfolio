@@ -1,0 +1,35 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+system1 = GetSystem(Name="SYS")
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+Save(Overwrite=True)
+model1.Exit()
+system2 = GetSystem(Name="Geom 1")
+system2.Copy(KeepConnections=True)
+system3 = GetSystem(Name="Geom")
+geometry2 = system3.GetContainer(ComponentName="Geometry")
+geometryProperties1 = geometry2.GetGeometryProperties()
+geometryProperties1.GeometryImportAnalysisType = "AnalysisType_2D"
+geometry2.Edit()
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+geometryComponent1 = system3.GetComponent(Name="Geometry")
+system4 = template1.CreateSystem(
+    ComponentsToShare=[geometryComponent1],
+    Position="Right",
+    RelativeTo=system3)
+modelComponent1 = system4.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model2 = system4.GetContainer(ComponentName="Model")
+model2.Edit()
+system3.DisplayText = "surface element"
+model2.Exit()
+system2.DisplayText = "body element"
+Save(Overwrite=True)
+geometry2.Exit()

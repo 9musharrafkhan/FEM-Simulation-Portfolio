@@ -1,0 +1,10 @@
+/COM,ANSYS RELEASE 2026 R1           BUILD 26.1      UP20260202       15:46:48
+
+ *** WARNING ***                         ELAPSED TIME =       6.015   TIME= 15:46:50
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** WARNING ***                         ELAPSED TIME =       6.050   TIME= 15:46:50
+ Material number 2 (used by element 2913) should normally have at least  
+ one MP or one TB type command associated with it.  Output of energy by  
+ material may not be available.                                          
