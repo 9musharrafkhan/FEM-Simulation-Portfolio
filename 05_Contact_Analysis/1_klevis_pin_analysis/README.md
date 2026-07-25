@@ -1,6 +1,4 @@
-Here is a professional GitHub `README.md` for your **Project 05 – Contact Analysis of a Clevis Pin Assembly** based on the information and ANSYS screenshots you provided.
-
-# 05_Contact_Clevis_Pin_Analysis
+# 05_1_Contact_Clevis_Pin_Analysis
 
 # Contact Analysis of a Clevis Pin Assembly using ANSYS Mechanical
 
@@ -10,7 +8,7 @@ Here is a professional GitHub `README.md` for your **Project 05 – Contact Anal
 
 This project presents the nonlinear contact analysis of a clevis pin assembly using **ANSYS Mechanical**.
 
-The assembly consists of a clevis (U-shape), a connecting yoke, and a cylindrical pin subjected to external loading.
+The assembly consists of a clevis (U-shape), a connecting yoke, and a cylindrical pin.
 
 Unlike conventional static structural analysis, contact analysis considers the interaction between multiple bodies, enabling accurate prediction of:
 
@@ -28,32 +26,6 @@ The objective of this project is to:
 * Evaluate deformation of the assembly
 * Verify proper load transfer between contacting parts
 * Demonstrate practical contact modeling in ANSYS
-
----
-
-# Why Contact Analysis?
-
-Many engineering assemblies consist of multiple components connected through mechanical joints.
-
-Traditional bonded models assume perfect continuity and cannot accurately represent interfaces where bodies touch.
-
-Contact analysis is required to study:
-
-* Pin joints
-* Bolted connections
-* Bearings
-* Hinges
-* Press-fit assemblies
-* Mechanical linkages
-
-It enables engineers to predict:
-
-* Contact pressure
-* Separation
-* Sliding
-* Frictional behavior
-* Stress concentration
-* Joint stiffness
 
 ---
 
@@ -346,7 +318,7 @@ the design satisfies the required Factor of Safety.
 │   │
 │   ├── results/
 │   │   ├── equivalent_stress.png
-│   │   └── y_directional_deformation.png
+│   │   └── x_directional_deformation.png
 │   │
 │   └── README_ANSYS.md
 │
@@ -373,20 +345,6 @@ the design satisfies the required Factor of Safety.
 
 ---
 
-# Files Included
-
-| Folder               | Description                          |
-| -------------------- | ------------------------------------ |
-| geometry/            | Assembly geometry and exploded views |
-| contacts/            | Contact pair definitions             |
-| mesh/                | Mesh images and quality statistics   |
-| boundary_conditions/ | Applied supports and loads           |
-| contact_tool/        | Contact status and pressure results  |
-| results/             | Stress and deformation contours      |
-| report/              | Detailed engineering report          |
-
----
-
 # Key Learnings
 
 This project demonstrates:
@@ -399,20 +357,6 @@ This project demonstrates:
 * Contact status interpretation
 * Engineering safety assessment
 * Practical ANSYS contact modeling
-
----
-
-# Future Extensions
-
-Possible future improvements include:
-
-* Frictional contact analysis
-* Pin wear analysis
-* Fatigue life prediction
-* Plastic deformation
-* Dynamic loading
-* Bolt preload simulation
-* Contact stiffness optimization
 
 ---
 
