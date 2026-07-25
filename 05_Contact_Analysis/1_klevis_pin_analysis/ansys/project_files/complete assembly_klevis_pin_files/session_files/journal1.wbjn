@@ -1,0 +1,81 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+fileType1 = GetFileType(Name="GeometryFileType")
+ImportFile(
+    FilePath="F:/CoME/Forth Semester/Practice FEM/Ansys/static analysis/spring.STEP",
+    FileType=fileType1)
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = GetSystem(Name="Geometry")
+geometryComponent1 = system1.GetComponent(Name="Geometry")
+system2 = template1.CreateSystem(
+    ComponentsToShare=[geometryComponent1],
+    Position="Right",
+    RelativeTo=system1)
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+engineeringData1 = system2.GetContainer(ComponentName="Engineering Data")
+material1 = engineeringData1.GetMaterial(Name="Structural Steel")
+material1.SetSuppression(Suppressed=True)
+matl1 = engineeringData1.CreateMaterial(Name="Cr-V steel")
+matlProp1 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp1.SetVariableProperty(
+    VariableName="Young's Modulus",
+    Property="Unit",
+    Value="MPa")
+matlProp1.SetData(
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["220000 [MPa]"]])
+matlProp1.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["0.3"]])
+matlProp2 = matl1.CreateProperty(
+    Name="Compressive Ultimate Strength",
+    Qualifiers={"Definition": "", "Behavior": ""})
+matlProp2.SetData(
+    Index=-1,
+    Variables=["Compressive Ultimate Strength"],
+    Values=[["1 [Pa]"]])
+matlProp2.SetVariableProperty(
+    VariableName="Compressive Ultimate Strength",
+    Property="Unit",
+    Value="MPa")
+matlProp2.SetData(
+    Variables=["Compressive Ultimate Strength"],
+    Values=[["1E-06 [MPa]"]])
+matlProp2.SetData(
+    Variables=["Compressive Ultimate Strength"],
+    Values=[["1690 [MPa]"]])
+modelComponent1 = system2.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system2.GetContainer(ComponentName="Model")
+model1.Edit()
+geometry1.Edit()
+geometry1.Exit()
+model1.Exit()
+system1.Delete()
+system2.Delete()
+ImportFile(
+    FilePath="F:/CoME/Forth Semester/Practice FEM/Ansys/contact analysis/complete assembly.stp",
+    FileType=fileType1)
+system3 = GetSystem(Name="Geometry")
+geometry2 = system3.GetContainer(ComponentName="Geometry")
+geometry2.Edit()
+geometryComponent2 = system3.GetComponent(Name="Geometry")
+system4 = template1.CreateSystem(
+    ComponentsToShare=[geometryComponent2],
+    Position="Right",
+    RelativeTo=system3)
+geometry2.Exit()
+modelComponent2 = system4.GetComponent(Name="Model")
+modelComponent2.Refresh()
+model2 = system4.GetContainer(ComponentName="Model")
+model2.Edit()
+model2.Exit()
+Save(Overwrite=True)
