@@ -1,4 +1,3 @@
-````markdown
 # 06_Dynamic_Analysis_using_ANSYS
 
 # Dynamic Analysis using ANSYS Mechanical
@@ -496,6 +495,3 @@ Otto von Guericke University Magdeburg
 # License
 
 This project is licensed under the MIT License.
-````
-
-
