@@ -409,35 +409,12 @@ Dynamic analysis is widely used in:
 │
 ├── ansys/
 │   ├── modal_analysis/
-│   │   ├── modal_project.wbpj
-│   │   ├── mode_shapes.png
-│   │   ├── natural_frequencies.csv
-│   │   └── modal_summary.md
 │   │
 │   ├── harmonic_analysis/
-│   │   ├── harmonic_project.wbpj
-│   │   ├── frequency_response.png
-│   │   ├── amplitude_vs_frequency.png
-│   │   └── harmonic_summary.md
 │   │
-│   ├── transient_analysis/
-│   │   ├── transient_project.wbpj
-│   │   ├── displacement_time_history.png
-│   │   ├── stress_time_history.png
-│   │   └── transient_summary.md
-│   │
-│   └── material/
-│       └── material_properties.txt
-│
-├── report/
-│   └── dynamic_analysis_report.pdf
+│   └── transient_analysis/
 │
 └── figures/
-    ├── mode_shapes.png
-    ├── resonance.png
-    ├── harmonic_response.png
-    ├── transient_response.png
-    └── frequency_response_curve.png
 ```
 
 ---
