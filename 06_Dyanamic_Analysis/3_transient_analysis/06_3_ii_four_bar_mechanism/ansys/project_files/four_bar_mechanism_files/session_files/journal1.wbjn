@@ -1,27 +1,3 @@
-# encoding: utf-8
-# 2026 R1
-SetScriptVersion(Version="26.1.174")
-fileType1 = GetFileType(Name="GeometryFileType")
-ImportFile(
-    FilePath="F:/CoME/Forth Semester/Practice FEM/Ansys/dynamic analysis/transient_analysis/four_bar_mechanism.stp",
-    FileType=fileType1)
-system1 = GetSystem(Name="Geometry")
-geometry1 = system1.GetContainer(ComponentName="Geometry")
-geometry1.Edit()
-template1 = GetTemplate(
-    TemplateName="Transient Structural",
-    Solver="ANSYS")
-geometryComponent1 = system1.GetComponent(Name="Geometry")
-system2 = template1.CreateSystem(
-    ComponentsToShare=[geometryComponent1],
-    Position="Right",
-    RelativeTo=system1)
-modelComponent1 = system2.GetComponent(Name="Model")
-modelComponent1.Refresh()
-geometry1.Exit()
-model1 = system2.GetContainer(ComponentName="Model")
-model1.Edit()
-geometry1.Edit()
-geometry1.Exit()
-model1.Exit()
-Save(Overwrite=True)
+version https://git-lfs.github.com/spec/v1
+oid sha256:f7bebfc7edd7d6c296b73ce10bd9e637c1dcf9c2127d795d80396718e75bd3ff
+size 908
