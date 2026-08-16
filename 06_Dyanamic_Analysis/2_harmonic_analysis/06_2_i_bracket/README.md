@@ -92,14 +92,6 @@ The boundary condition is important because the natural frequencies and mode sha
 
 ---
 
-# Geometry and Boundary Condition
-
-![Bracket Geometry](geometry\(1\).png)
-
-![Fixed Support](fixed_support\(1\).PNG)
-
----
-
 # Mesh
 
 The bracket is discretized using **3D tetrahedral elements**.
@@ -120,15 +112,11 @@ The generated mesh contains a large number of **Tet10** elements.
 
 The mesh quality was evaluated using the element quality metric available in ANSYS Mechanical.
 
-![Mesh Quality](mesh_quality\(3\).PNG)
-
 The mesh quality distribution indicates that the majority of the generated elements have acceptable quality for the structural dynamic analysis.
 
 ---
 
 # Mesh
-
-![Bracket Mesh](mesh_size\(1\).PNG)
 
 The mesh is locally refined around geometrical features such as holes and curved transitions where higher deformation gradients can occur.
 
@@ -234,8 +222,6 @@ The first five modes are the primary modes considered for the project objectives
 
 # Modal Frequency Results
 
-![Modal Frequencies](modal_frequencies\(1\).PNG)
-
 The modal results show that the bracket has several closely spaced modes in the higher-frequency region.
 
 In particular, the third and fourth modes occur in the region of approximately **1650–1750 Hz**. This region is therefore important for the harmonic response analysis.
@@ -340,8 +326,6 @@ The harmonic analysis uses **Mode Superposition** to calculate the dynamic respo
 
 The harmonic pressure is applied to the upper horizontal surface of the bracket.
 
-![Harmonic Pressure](harmonic_pressure.PNG)
-
 The applied pressure is:
 
 ```text
@@ -356,8 +340,6 @@ The fixed mounting locations remain constrained during the harmonic analysis.
 
 A static structural analysis was also used to verify the pressure application and obtain the corresponding static deformation.
 
-![Static Pressure](static_pressure.PNG)
-
 The static pressure load is applied to the same upper surface used for the dynamic excitation.
 
 ---
@@ -370,8 +352,6 @@ The static structural solution produced a maximum total deformation of approxima
 Maximum deformation ≈ 0.24288 mm
 ```
 
-![Static Total Deformation](static_total_deformation.PNG)
-
 The static result provides a useful reference for the structural response under the applied pressure before considering dynamic amplification.
 
 ---
@@ -381,8 +361,6 @@ The static result provides a useful reference for the structural response under 
 The harmonic response was evaluated in the **Y direction**, which corresponds to the principal displacement direction investigated in this project.
 
 The frequency response plot shows the displacement amplitude as a function of excitation frequency.
-
-![Frequency Response](frequency_response_for_y_displacement.PNG)
 
 ---
 
