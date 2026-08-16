@@ -38,7 +38,7 @@ The load is applied sequentially to each step, with the person spending approxim
 Therefore, the complete loading sequence is approximately:
 
 ```math
-T=13\;s
+T=19\;s
 ```
 
 The objective is to determine the transient structural response of the staircase during the climbing process.
@@ -67,9 +67,9 @@ The objectives of this project are to:
 
 | Parameter              | Value                            |
 | ---------------------- | -------------------------------- |
-| Number of Steps        | 13                               |
+| Number of Steps        | 19                               |
 | Load                   | 1000 N                           |
-| Loading Duration       | 13 s                             |
+| Loading Duration       | 19 s                             |
 | Load Application       | Sequentially on each step        |
 | Material               | Structural Steel                 |
 | Young's Modulus        | 200 GPa                          |
@@ -332,35 +332,6 @@ The staircase model uses a structured/refined mesh suitable for resolving the st
 
 ---
 
-# Load Movement
-
-The most important feature of this project is the movement of the load.
-
-The force is applied at different locations as time progresses.
-
-Examples of the ANSYS loading sequence include:
-
-* Force 1
-* Force 2
-* Force 6
-* Force 7
-* Force 8
-* Force 12
-* Force 13
-* Force 14
-* Force 18
-* Force 19
-
-At the final loading position, **Force 19** is shown with a magnitude of:
-
-```math
-F=1000\;N
-```
-
-acting in the negative Z direction.
-
----
-
 # Transient Response
 
 The structural response changes continuously as the load moves along the staircase.
@@ -588,39 +559,6 @@ Interpret Results
 
 ---
 
-# Results Available
-
-The project contains ANSYS results for:
-
-* Fixed support
-* Moving force positions
-* Mesh quality
-* Mesh distribution
-* Equivalent von-Mises stress
-* Total deformation
-* Z-directional deformation
-
-The transient result animations can also be used to visualize how the structural response changes as the load moves from the first step toward the final step.
-
----
-
-# Applications
-
-The methodology used in this project can be extended to:
-
-* Staircase structural design
-* Pedestrian loading
-* Moving loads on structures
-* Footbridge analysis
-* Railway structures
-* Conveyor systems
-* Walkways
-* Industrial platforms
-* Structural impact problems
-* Time-dependent mechanical loading
-
----
-
 # Limitations
 
 The present model represents the person using a simplified **1000 N load** applied sequentially to the steps.
@@ -639,25 +577,6 @@ Therefore, the results represent a simplified engineering approximation of stair
 
 ---
 
-# Future Extensions
-
-Future work may include:
-
-* Modeling the complete human body using multibody dynamics.
-* Applying realistic walking and climbing loads.
-* Including impact forces during foot contact.
-* Introducing structural damping.
-* Performing modal analysis before transient analysis.
-* Performing harmonic response analysis.
-* Conducting fatigue analysis.
-* Performing nonlinear contact analysis.
-* Comparing different staircase materials.
-* Performing mesh-convergence studies.
-* Optimizing staircase geometry.
-* Comparing different loading speeds.
-
----
-
 # Repository Structure
 
 ```text
@@ -666,47 +585,25 @@ Future work may include:
 ├── README.md
 │
 ├── ansys/
-│   ├── transient_structural/
-│   │   ├── stairs_ascend.wbpj
-│   │   ├── equivalent_stress.png
-│   │   ├── total_deformation.png
-│   │   ├── z_directional_deformation.png
-│   │   └── transient_summary.md
+│   ├── project_files/
+│   │   ├── stairs.wbpj
+│   │   └── stairs.wbpj
 │   │
-│   ├── loading/
+│   ├── boundary_conditions/
+│   │   ├── fixed_support.png
 │   │   ├── force1.png
-│   │   ├── force2.png
-│   │   ├── force6.png
-│   │   ├── force7.png
-│   │   ├── force8.png
-│   │   ├── force12.png
-│   │   ├── force13.png
-│   │   ├── force14.png
-│   │   ├── force18.png
+│   │   ├── forcei.png
 │   │   └── force19.png
 │   │
 │   ├── mesh/
 │   │   ├── mesh_size.png
 │   │   └── mesh_quality.png
 │   │
-│   └── boundary_conditions/
-│       └── fixed_support.png
+│   └── results/
 │
-├── geometry/
-│   └── stairs_geometry.jpeg
-│
-├── results/
-│   ├── equivalent_stress.avi
-│   ├── total_deformation.png
-│   └── z_directional_deformation.avi
-│
-└── figures/
-    ├── geometry.jpeg
-    ├── fixed_support.png
-    ├── mesh.png
-    ├── equivalent_stress.png
-    ├── total_deformation.png
-    └── z_directional_deformation.png
+└── geometry/
+    ├── geometry.peg
+    └── stairs.step
 ```
 
 ---
@@ -732,7 +629,7 @@ This project demonstrates:
 
 # Conclusion
 
-A transient structural analysis of a **13-step staircase** was performed using ANSYS Mechanical.
+A transient structural analysis of a **19-step staircase** was performed using ANSYS Mechanical.
 
 A **1000 N load** was applied sequentially to the steps to represent a person ascending the staircase over approximately **13 seconds**.
 
