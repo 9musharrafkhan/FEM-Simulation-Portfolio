@@ -247,19 +247,10 @@ In this project, the force position changes with time as the person moves from o
 
 ---
 
-````markdown
 # Time-Dependent Loading
 
 The applied force can be represented as a piecewise time-dependent function.
 
-For a particular step \(i\),
-
-```math
-F_i(t)=
-\begin{cases}
-1000\ \text{N}, & t_i \leq t < t_{i+1} \\
-0, & \text{otherwise}
-\end{cases}
 ````
 
 The complete loading condition is therefore a sequence of force functions:
