@@ -8,7 +8,7 @@
 
 This project presents the fundamentals of **Explicit Dynamic Analysis** and **Rigid Body Dynamic Motion**, with emphasis on the differences between static, transient/implicit, and explicit structural analysis.
 
-The analysis concepts are based on the attached reference figures, which explain:
+The analysis concepts are, which explain:
 
 - Static structural analysis
 - Transient structural analysis
@@ -40,12 +40,6 @@ where:
 - `{ddot u}` = acceleration vector
 - `{F(t)}` = time-dependent external force
 
-The first attached figure introduces the distinction between static structural analysis, transient structural analysis, and explicit dynamics.
-
-**Figure 1 – Static, transient and explicit structural analysis concepts**
-
-![Figure 1 – Static, transient and explicit structural analysis](figures/01_static_transient_explicit.png)
-
 ---
 
 # Problem Statement
@@ -63,7 +57,7 @@ Examples include:
 - Collision problems
 - Large-deformation structural events
 
-The attached reference material explains that dynamic problems are solved by dividing the analysis time into a sequence of time increments. At each increment, the structural state is advanced in time.
+The dynamic problems are solved by dividing the analysis time into a sequence of time increments. At each increment, the structural state is advanced in time.
 
 For dynamic problems:
 
@@ -84,10 +78,6 @@ For a nonlinear static problem, the stiffness depends on the current structural 
 ```
 
 These equations are consistent with the matrix-equation comparison shown in the attached reference figure.
-
-**Figure 2 – Matrix equations for linear, nonlinear static and dynamic problems**
-
-![Figure 2 – Matrix equations](figures/02_matrix_equations.png)
 
 ---
 
@@ -131,12 +121,6 @@ The primary quantities of interest are:
 - Strain
 - Reaction force
 
-The attached reference figure describes static analysis as an analysis in which loads do not change with respect to time, or change very slowly.
-
-**Figure 3 – Static structural analysis concept**
-
-![Figure 3 – Static structural analysis](figures/03_static_structural_analysis.png)
-
 ---
 
 ## Transient Structural Analysis
@@ -151,8 +135,6 @@ The governing equation is:
 
 Transient analysis is appropriate when the loading varies with time and the dynamic response is important.
 
-The attached figures emphasize that the analysis time is divided into increments and the structural state is evaluated at successive time points.
-
 ---
 
 ## Explicit Dynamics
@@ -162,10 +144,6 @@ Explicit dynamics solves the dynamic equilibrium equations directly in time usin
 The key feature is that the acceleration at the current time can be used to advance the solution to the next time level without solving a global nonlinear equilibrium equation at every increment.
 
 The explicit method is particularly attractive for short-duration, highly nonlinear events.
-
-**Figure 4 – Implicit versus explicit solving methods**
-
-![Figure 4 – Implicit versus explicit methods](figures/04_implicit_vs_explicit.png)
 
 ---
 
@@ -199,10 +177,6 @@ where:
 - `F_ext` = external force vector
 - `F_int` = internal force vector
 - `R` = residual vector
-
-**Figure 5 – Geometric nonlinearity**
-
-![Figure 5 – Geometric nonlinearity](figures/05_geometric_nonlinearity.png)
 
 ---
 
@@ -518,14 +492,10 @@ Explicit analysis does not normally require the nonlinear equilibrium iterations
 
 However, stability requires a sufficiently small time increment.
 
-The attached reference figure illustrates the major difference:
+The major difference:
 
 - **Implicit analysis:** comparatively larger time increments, with equilibrium convergence required at each increment.
 - **Explicit analysis:** very small time increments, with the state advanced directly from the previous time level.
-
-**Figure 6 – Time-increment comparison between implicit and explicit analysis**
-
-![Figure 6 – Time increments](figures/06_time_increment_comparison.png)
 
 The choice between implicit and explicit methods therefore depends strongly on the time scale and nonlinear character of the physical event.
 
@@ -545,8 +515,6 @@ The choice between implicit and explicit methods therefore depends strongly on t
 | Short-duration events | Less efficient in many cases | Highly suitable |
 | Long-duration events | Often more efficient | Can become computationally expensive |
 | Typical applications | Slow transient/nonlinear problems | Impact, crash, drop, collision |
-
-The attached reference material specifically contrasts the larger time increments of implicit analysis with the very small time increments used in explicit analysis.
 
 ---
 
@@ -948,18 +916,6 @@ A dynamic load can be represented as:
 
 where `f(t)` describes the loading history.
 
-A general piecewise loading function can be written as:
-
-```math
-F(t)=
-\begin{cases}
-F_1(t),&t_0\leq t<t_1\\
-F_2(t),&t_1\leq t<t_2\\
-\vdots&\\
-F_n(t),&t_{n-1}\leq t\leq t_n
-\end{cases}
-```
-
 The time-dependent loading history is important because the dynamic response depends not only on the magnitude of the load but also on its duration and rate of application.
 
 ---
@@ -1078,70 +1034,6 @@ For a free rigid body, verify conservation of:
 - Linear momentum
 - Angular momentum
 - Energy, where appropriate
-
----
-
-# Figure References
-
-The attached reference figures are incorporated into this project documentation as follows:
-
-| Figure | Description | README Reference |
-|---|---|---|
-| Figure 1 | Static, transient structural and explicit dynamics concepts | Static/Transient/Explicit Dynamics |
-| Figure 2 | Matrix equations for linear, nonlinear static and dynamic problems | Governing Equations |
-| Figure 3 | Static structural analysis | Static Analysis |
-| Figure 4 | Implicit versus explicit solving methods | Numerical Methods |
-| Figure 5 | Types of nonlinearity | Nonlinear Analysis |
-| Figure 6 | Implicit versus explicit time increments | Time Integration |
-
-The figures should be stored in the `figures/` directory using the filenames shown in the repository structure below.
-
----
-
-# Repository Structure
-
-```text
-07_Explicit_Dynamics_and_Rigid_Body_Dynamic_Motion/
-│
-├── README.md
-│
-├── ansys/
-│   ├── explicit_dynamics/
-│   │   ├── explicit_dynamic.wbpj
-│   │   ├── analysis_setup.png
-│   │   ├── time_step.png
-│   │   └── results/
-│   │
-│   ├── rigid_body/
-│   │   ├── rigid_body_motion.wbpj
-│   │   ├── translational_motion.png
-│   │   ├── rotational_motion.png
-│   │   └── results/
-│   │
-│   └── contact/
-│       ├── contact_setup.png
-│       └── contact_results.png
-│
-├── geometry/
-│   └── geometry/
-│
-├── figures/
-│   ├── 01_static_transient_explicit.png
-│   ├── 02_matrix_equations.png
-│   ├── 03_static_structural_analysis.png
-│   ├── 04_implicit_vs_explicit.png
-│   ├── 05_geometric_nonlinearity.png
-│   └── 06_time_increment_comparison.png
-│
-└── results/
-    ├── animation/
-    ├── stress/
-    ├── deformation/
-    ├── velocity/
-    ├── acceleration/
-    ├── contact_force/
-    └── energy/
-```
 
 ---
 
@@ -1298,9 +1190,8 @@ The attached figures provide the conceptual foundation for selecting an appropri
 
 # References
 
-1. Attached reference figures provided with this project, covering static structural analysis, transient structural analysis, nonlinear analysis, implicit solving, explicit solving and time-increment selection.
-2. ANSYS Mechanical documentation and theory reference for explicit dynamics and structural dynamics.
-3. Standard finite-element formulations for structural dynamics, central-difference time integration and rigid-body mechanics.
+1. ANSYS Mechanical documentation and theory reference for explicit dynamics and structural dynamics.
+2. Standard finite-element formulations for structural dynamics, central-difference time integration and rigid-body mechanics.
 
 ---
 
