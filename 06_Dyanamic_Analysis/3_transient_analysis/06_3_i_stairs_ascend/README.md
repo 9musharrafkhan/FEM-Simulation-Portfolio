@@ -251,7 +251,6 @@ In this project, the force position changes with time as the person moves from o
 
 The applied force can be represented as a piecewise time-dependent function.
 
-````
 
 The complete loading condition is therefore a sequence of force functions:
 
@@ -261,7 +260,6 @@ F(t)=F_1(t)+F_2(t)+F_3(t)+\cdots+F_{13}(t)
 
 This allows the load to move progressively along the staircase.
 
-```
 
 # ANSYS Analysis Setup
 
