@@ -458,46 +458,7 @@ Amplitude + Phase vs Frequency
 The modal results provide important information for interpreting the peaks in the frequency-response curve.
 
 ---
-
-# Results Included
-
-The project contains the following ANSYS results:
-
-### 1. Geometry
-
-The final plate geometry with:
-
-* One large circular hole
-* Two small circular holes
-* Fixed left edge
-
-### 2. Mesh
-
-The final finite element mesh including local refinement around the circular holes.
-
-### 3. Boundary Conditions
-
-The fixed support applied to the left side of the plate.
-
-### 4. Modal Results
-
-The modal solution includes:
-
-* Natural frequencies
-* Mode shapes
-* Total deformation for individual modes
-
-### 5. Harmonic Response
-
-The harmonic solution includes:
-
-* Frequency response
-* Amplitude vs frequency
-* Phase angle vs frequency
-
----
-
-# Attached Files
+# Attatched files
 
 The following files/images are included with this project:
 
@@ -507,29 +468,16 @@ The following files/images are included with this project:
 ├── README.md
 │
 ├── geometry/
-│   └── simple_plate_geometry.png
+│   └── geometry.png
 │
-├── mesh/
-│   └── simple_plate_mesh.png
-│
-├── boundary_conditions/
-│   └── fixed_support.png
-│
-├── modal_results/
-│   ├── natural_frequencies.png
-│   ├── mode_1.png
-│   ├── mode_2.png
-│   ├── mode_3.png
-│   ├── mode_4.png
-│   └── mode_5.png
-│
-├── harmonic_results/
-│   ├── harmonic_setup.png
-│   ├── frequency_response.png
-│   └── phase_response.png
+├── ansys/
+│   ├── boundary_conditions/
+│   ├── mesh/
+│   ├── project_files/
+│   └── results/
 │
 └── ansys/
-    └── simple_plate_modal_analysis.wbpj
+    └── .gitattributes
 ```
 
 ---
@@ -603,59 +551,6 @@ The following observations can be made from the analysis:
 11. Perform the frequency sweep.
 12. Plot amplitude and phase response.
 13. Compare frequency-response peaks with modal frequencies.
-
----
-
-# Engineering Significance
-
-The analysis demonstrates how the dynamic characteristics of a component can be evaluated before physical testing.
-
-Knowing the natural frequencies allows the designer to:
-
-* Avoid operating near resonance.
-* Modify structural stiffness.
-* Modify mass distribution.
-* Add structural stiffeners.
-* Change material selection.
-* Change geometry.
-* Improve vibration resistance.
-* Reduce the possibility of fatigue failure.
-
----
-
-# Key Learnings
-
-This project demonstrates:
-
-* Fundamentals of structural vibration.
-* Free and forced vibration.
-* Natural frequency.
-* Mode shapes.
-* Eigenvalue formulation.
-* Modal analysis using FEM.
-* Fixed boundary conditions in dynamic analysis.
-* Mesh refinement around geometric discontinuities.
-* Harmonic response analysis.
-* Frequency-response interpretation.
-* Relationship between modal frequencies and resonance.
-
----
-
-# Future Extensions
-
-The project can be extended by performing:
-
-* Mesh convergence study for natural frequencies.
-* Comparison with analytical plate solutions.
-* Experimental modal testing.
-* Different boundary conditions.
-* Different plate thicknesses.
-* Different materials.
-* Random vibration analysis.
-* Transient structural analysis.
-* Fatigue analysis under cyclic excitation.
-* Optimization of hole geometry.
-* Comparison of steel, aluminium, CFRP, and GFRP plates.
 
 ---
 
