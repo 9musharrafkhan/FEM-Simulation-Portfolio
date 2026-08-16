@@ -445,40 +445,31 @@ FEM-Simulation-Portfolio/
 │
 ├── 01_Linear_Cantilever/
 │   ├── README.md
-│   ├── matlab/
-│   ├── python/
-│   └── ansys/
+│   └── ...
 │
 ├── 02_Truss_Structure/
 │   ├── README.md
-│   ├── matlab/
-│   └── ansys/
+│   └── ...
 │
-├── 03_/
+├── 03_Axisymmetric_FEM_Analysis
 │   ├── README.md
 │   └── ...
 │
-├── 04_/
+├── 04_Plane_Stress_and_Strain_Analysis
 │   ├── README.md
 │   └── ...
 │
-├── 05_/
+├── 05_Contact_Analysis
 │   ├── README.md
 │   └── ...
 │
-├── 06_3_i_Stairs_Ascend/
+├── 06_Dynamic_Analysis/
 │   ├── README.md
-│   ├── ansys/
-│   ├── geometry/
-│   ├── figures/
-│   └── results/
+│   └── ...
 │
 └── 07_Explicit_Dynamics_and_Rigid_Body_Dynamic_Motion/
     ├── README.md
-    ├── ansys/
-    ├── geometry/
-    ├── figures/
-    └── results/
+    └── ...
 ```
 
 ---
@@ -699,20 +690,6 @@ The methods developed in this portfolio are applicable to:
 - Composite structures
 - Thermal-mechanical systems
 - High-performance engineering simulations
-
----
-
-# Current Portfolio Projects
-
-| Project | Main Topic | Primary Tools |
-|---|---|---|
-| `01_Linear_Cantilever` | Linear FEM / Beam Analysis | MATLAB, ANSYS |
-| `02_Truss_Structure` | Truss FEM | MATLAB, ANSYS |
-| `03_` | FEM / Structural Analysis | MATLAB, ANSYS |
-| `04_` | FEM / Structural Analysis | MATLAB, ANSYS |
-| `05_` | Nonlinear / Advanced FEM | MATLAB, ANSYS |
-| `06_3_i_Stairs_Ascend` | Transient Structural Analysis / Moving Load | ANSYS Mechanical |
-| `07_Explicit_Dynamics_and_Rigid_Body_Dynamic_Motion` | Explicit Dynamics / Rigid Body Dynamics | ANSYS Mechanical |
 
 ---
 
