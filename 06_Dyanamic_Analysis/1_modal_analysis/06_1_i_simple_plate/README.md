@@ -1,4 +1,3 @@
-````markdown
 # 06_1_i_Simple_Plate_Modal_Analysis
 
 # Modal Analysis of a Simple Plate using ANSYS Mechanical
