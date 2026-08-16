@@ -1,4 +1,4 @@
-# 06_3_ii — Transient Structural Analysis of Four-Bar Mechanism
+# 06_3_ii_Transient Structural Analysis of Four-Bar Mechanism
 
 ## Problem Statement
 
@@ -97,25 +97,17 @@ Four revolute joints are used to define the kinematic connections.
 
 The input link is connected to the ground using a revolute joint.
 
-![Ground to Input](Revolute_Ground_To_Input.PNG)
-
 ### Input to Coupler
 
 The input link and coupler are connected using a revolute joint.
-
-![Input to Coupler](Revolute_Input_To_Coupler.PNG)
 
 ### Coupler to Output
 
 The coupler and output link are connected using a revolute joint.
 
-![Coupler to Output](Revolute_Coupler_To_Output.PNG)
-
 ### Ground to Output
 
 The output link is connected to the ground using a revolute joint.
-
-![Ground to Output](Revolute_Ground_To_Output.PNG)
 
 ---
 
@@ -130,8 +122,6 @@ The input link is subjected to a prescribed rotational motion.
 | Type           | Rotation        |
 | Magnitude      | Tabular Data    |
 | Final Rotation | 360°            |
-
-![Input Joint Rotation](input_joint_rotation.PNG)
 
 The input rotation is defined as a function of time:
 
@@ -172,8 +162,6 @@ The transient structural analysis was performed using the following settings:
 | Maximum Time Step              |              0.5 s |
 | Maximum Iterations per Substep | Program Controlled |
 
-![Analysis Settings](analysis_setting.PNG)
-
 The total simulation time is:
 
 $$
@@ -186,8 +174,6 @@ $$
 
 The four-bar mechanism was discretized using finite elements before performing the transient analysis.
 
-![Mesh](mesh_size\(3\).PNG)
-
 The mesh was generated while maintaining the required connections at the revolute joints.
 
 ---
@@ -195,8 +181,6 @@ The mesh was generated while maintaining the required connections at the revolut
 ## Joint Probe
 
 A joint probe was used to monitor the transient response of the mechanism.
-
-![Joint Probe](joint_probe.PNG)
 
 The probe results were evaluated over the complete 45-second simulation.
 
@@ -240,8 +224,6 @@ $$
 \sigma_{vm,min}=8.1438\times10^{-7}\ MPa
 $$
 
-![Equivalent Stress](transient_equivalent_stress.PNG)
-
 ### Stress Check
 
 The allowable stress is:
@@ -274,8 +256,6 @@ $$
 \epsilon_{eq,min}=8.5536\times10^{-12}
 $$
 
-![Equivalent Elastic Strain](transient_equivalent_elastic_strain.PNG)
-
 ---
 
 ## Total Deformation
@@ -291,8 +271,6 @@ Minimum reported deformation:
 $$
 u_{min}=1.4782\times10^{-9}\ mm
 $$
-
-![Total Deformation](transient_total_deformation.PNG)
 
 The deformation represents the overall motion of the mechanism and should therefore be interpreted together with the prescribed joint motion.
 
@@ -312,8 +290,6 @@ $$
 v_{min}=1.3481\times10^{-6}\ mm/s
 $$
 
-![Total Velocity](transient_total_velocity.PNG)
-
 The velocity changes continuously as the input link rotates and transfers motion through the coupler and output links.
 
 ---
@@ -332,8 +308,6 @@ $$
 v_{x,min}=-5.0092\times10^{-7}\ mm/s
 $$
 
-![Directional Velocity](transient_directional_velocity.PNG)
-
 ---
 
 ## Total Acceleration
@@ -349,8 +323,6 @@ Minimum reported acceleration:
 $$
 a_{min}=1.0611\times10^{-7}\ mm/s^2
 $$
-
-![Total Acceleration](transient_total_acceleration.PNG)
 
 ---
 
@@ -422,50 +394,6 @@ The transient plots can be used to observe the variation of velocity, accelerati
 
 ---
 
-# Animation
-
-The transient deformation animation can be used to visualize the motion of the four-bar mechanism during the complete input-link rotation.
-
-```text
-animations/
-└── total_deformation.avi
-```
-
----
-
-# ANSYS Model Structure
-
-```text
-Model
-│
-├── Geometry
-├── Materials
-├── Coordinate Systems
-├── Connections
-│   ├── Revolute - Ground To Input
-│   ├── Revolute - Input To Coupler
-│   ├── Revolute - Coupler To Output
-│   └── Revolute - Ground To Output
-│
-├── Mesh
-│
-└── Transient Structural
-    ├── Initial Conditions
-    ├── Analysis Settings
-    ├── Joint - Rotation
-    │
-    └── Solution
-        ├── Joint Probe
-        ├── Equivalent Stress
-        ├── Equivalent Elastic Strain
-        ├── Total Deformation
-        ├── Total Velocity
-        ├── Directional Velocity
-        └── Total Acceleration
-```
-
----
-
 # Repository Structure
 
 ```text
@@ -474,26 +402,17 @@ Model
 ├── README.md
 │
 ├── geometry/
-│   └── geometry(1).jpeg
+│   └── four_bar_mechanism.stp
 │
-├── images/
-│   ├── analysis_setting.PNG
-│   ├── input_joint_rotation.PNG
-│   ├── Revolute_Coupler_To_Output.PNG
-│   ├── Revolute_Ground_To_Input.PNG
-│   ├── Revolute_Ground_To_Output.PNG
-│   ├── Revolute_Input_To_Coupler.PNG
-│   ├── mesh_size(3).PNG
-│   ├── joint_probe.PNG
-│   ├── transient_directional_velocity.PNG
-│   ├── transient_equivalent_elastic_strain.PNG
-│   ├── transient_equivalent_stress.PNG
-│   ├── transient_total_acceleration.PNG
-│   ├── transient_total_deformation.PNG
-│   └── transient_total_velocity.PNG
+├── ansys/
+│   ├── boundary_conditions/
+│   ├── contacts/
+│   ├── mesh/
+│   ├── project_files/
+│   └── results/
 │
 └── animations/
-    └── total_deformation.avi
+    └── total_deformation.mp4
 ```
 
 ---
