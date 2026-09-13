@@ -188,10 +188,6 @@ where:
 - $S_{ut}$ = Ultimate tensile strength
 - $N$ = Factor of safety
 
-**Figure 3** illustrates the stress-strain behavior and breaking point of a brittle material.
-
-![Brittle Material Failure](figures/03_brittle_material_failure.png)
-
 ---
 
 # 6. Theories of Failure
@@ -212,10 +208,6 @@ The main theories considered are:
 2. Maximum principal strain theory
 3. Maximum shear stress theory
 4. Distortion energy theory
-
-**Figure 4** summarizes these theories and their typical applications.
-
-![Theories of Failure](figures/04_theories_of_failure.png)
 
 ---
 
@@ -251,7 +243,7 @@ For plane stress, the principal strain can be related to the principal stresses 
 
 $$
 \varepsilon_1
-=
+\=
 \frac{1}{E}
 \left(
 \sigma_1-\nu\sigma_2
@@ -270,7 +262,7 @@ The maximum shear stress is:
 
 $$
 \tau_{\max}
-=
+\=
 \frac{\sigma_1-\sigma_3}{2}
 $$
 
@@ -302,7 +294,7 @@ For a three-dimensional stress state:
 
 $$
 \sigma_{vm}
-=
+\=
 \sqrt{
 \frac{1}{2}
 \left[
@@ -321,7 +313,7 @@ For principal stresses:
 
 $$
 \sigma_{vm}
-=
+\=
 \sqrt{
 \frac{
 (\sigma_1-\sigma_2)^2+
@@ -351,7 +343,7 @@ For a completely reversed stress cycle:
 
 $$
 \sigma_{\max}
-=
+\=
 -\sigma_{\min}
 $$
 
@@ -359,9 +351,9 @@ Therefore:
 
 $$
 \sigma_m
-=
+\=
 \frac{\sigma_{\max}+\sigma_{\min}}{2}
-=
+\=
 0
 $$
 
@@ -371,7 +363,7 @@ The stress amplitude is:
 
 $$
 \sigma_a
-=
+\=
 \frac{\sigma_{\max}-\sigma_{\min}}{2}
 $$
 
@@ -379,13 +371,9 @@ The stress range is:
 
 $$
 \sigma_r
-=
+\=
 \sigma_{\max}-\sigma_{\min}
 $$
-
-**Figure 5** illustrates completely reversed/cyclic stress and different types of fluctuating stress.
-
-![Completely Reversed Stress](figures/05_completely_reversed_stress.png)
 
 ---
 
@@ -424,10 +412,6 @@ Crack Propagation
 Final Fracture
 ````
 
-**Figure 6** introduces fatigue failure and explains delayed failure under repeated loading.
-
-![Fatigue Failure](figures/06_fatigue_failure.png)
-
 ---
 
 # 13. Fatigue Life
@@ -459,10 +443,6 @@ Fatigue Life
     └── Endurance Strength
 ```
 
-**Figure 7** illustrates the classification of fatigue life.
-
-![Fatigue Life](figures/07_fatigue_life.png)
-
 ---
 
 # 14. Fracture Mechanics
@@ -485,7 +465,7 @@ For Mode-I loading, the stress intensity factor can be expressed generally as:
 
 $$
 K_I
-=
+\=
 Y\sigma\sqrt{\pi a}
 $$
 
@@ -505,10 +485,6 @@ K_{IC}
 $$
 
 where $K_{IC}$ is the fracture toughness.
-
-**Figure 8** presents the concept of fracture mechanics and crack propagation.
-
-![Fracture Mechanics](figures/08_fracture_mechanics.png)
 
 ---
 
@@ -533,10 +509,6 @@ The remaining structure should maintain sufficient load-carrying capability unti
 The design assumes that defects or cracks may already exist.
 
 Periodic inspection is used to ensure that crack growth does not reach a critical size between inspections.
-
-**Figure 9** illustrates these three fatigue design philosophies.
-
-![Fatigue Design Philosophies](figures/09_fatigue_design_philosophies.png)
 
 ---
 
@@ -575,10 +547,6 @@ Fatigue Life Estimation
     └── Damage-Tolerant Design
 ```
 
-**Figure 10** summarizes these fatigue-life estimation methods.
-
-![Fatigue Life Estimation Methods](figures/10_life_estimation_methods.png)
-
 ---
 
 # 17. Endurance Limit
@@ -605,10 +573,6 @@ where:
 * $S_e$ = Endurance limit
 
 The endurance limit is particularly relevant for high-cycle fatigue design.
-
-**Figure 11** introduces the endurance limit and the S–N curve.
-
-![Endurance Limit](figures/11_endurance_limit.png)
 
 ---
 
@@ -653,10 +617,6 @@ The curve generally distinguishes:
 * High-cycle fatigue
 * Infinite-life region
 
-**Figure 12** shows a representative S–N curve and its infinite-life region.
-
-![S-N Curve](figures/12_sn_curve.png)
-
 ---
 
 # 19. Endurance Strength
@@ -681,10 +641,6 @@ $$
 S_e
 $$
 
-**Figure 13** illustrates the transition from the plastic/finite-life region to the endurance or infinite-life region.
-
-![Endurance Strength](figures/13_endurance_strength.png)
-
 ---
 
 # 20. Fatigue Stress Parameters
@@ -695,9 +651,9 @@ For a cyclic stress varying between $\sigma_{\max}$ and $\sigma_{\min}$:
 
 $$
 \sigma_r
-=
+\=
 \sigma_{\max}
--
+-\
 \sigma_{\min}
 $$
 
@@ -705,7 +661,7 @@ $$
 
 $$
 \sigma_a
-=
+\=
 \frac{
 \sigma_{\max}-\sigma_{\min}
 }{2}
@@ -715,7 +671,7 @@ $$
 
 $$
 \sigma_m
-=
+\=
 \frac{
 \sigma_{\max}+\sigma_{\min}
 }{2}
@@ -727,7 +683,7 @@ The stress ratio is:
 
 $$
 R
-=
+\=
 \frac{\sigma_{\min}}
 {\sigma_{\max}}
 $$
@@ -743,10 +699,6 @@ and:
 $$
 \sigma_m=0
 $$
-
-**Figure 14** illustrates stress range, stress amplitude, and mean stress.
-
-![Fatigue Stress Parameters](figures/14_fatigue_stress_criteria.png)
 
 ---
 
@@ -782,7 +734,7 @@ The factor-of-safety form is:
 
 $$
 \frac{1}{N}
-=
+\=
 \frac{\sigma_m}{S_{ut}}
 +
 \frac{\sigma_a}{S_e}
@@ -818,7 +770,7 @@ The factor-of-safety form is:
 
 $$
 \frac{1}{N}
-=
+\=
 \frac{\sigma_m}{S_y}
 +
 \frac{\sigma_a}{S_e}
@@ -847,7 +799,7 @@ A common form is:
 
 $$
 \frac{1}{N}
-=
+\=
 \left(
 \frac{\sigma_m}{S_{ut}}
 \right)^2
@@ -887,10 +839,6 @@ Se│ \       Goodman
 
 The region below the appropriate design curve represents the nominal safe region according to the selected criterion.
 
-**Figure 15** presents the Goodman diagram and compares the Goodman, Soderberg, and Gerber criteria.
-
-![Goodman Diagram](figures/15_goodman_diagram.png)
-
 ---
 
 # 26. Comparison of Fatigue Criteria
@@ -906,9 +854,9 @@ For conservative design:
 
 $$
 \text{Soderberg}
->
+\>
 \text{Goodman}
->
+\>
 \text{Gerber}
 $$
 
@@ -934,10 +882,6 @@ Typical examples include:
 
 Buckling is therefore different from conventional material yielding.
 
-**Figure 16** illustrates buckling failure and buckling modes.
-
-![Buckling Failure](figures/16_buckling_failure.png)
-
 ---
 
 # 28. Euler Critical Buckling Load
@@ -946,7 +890,7 @@ For an ideal slender column, Euler's critical buckling load is:
 
 $$
 P_{cr}
-=
+\=
 \frac{\pi^2EI}{(KL)^2}
 $$
 
@@ -968,7 +912,7 @@ Therefore:
 
 $$
 P_{cr}
-=
+\=
 \frac{\pi^2EI}{L_e^2}
 $$
 
@@ -982,7 +926,7 @@ The radius of gyration is:
 
 $$
 r
-=
+\=
 \sqrt{\frac{I}{A}}
 $$
 
@@ -990,7 +934,7 @@ The slenderness ratio is:
 
 $$
 \lambda
-=
+\=
 \frac{KL}{r}
 $$
 
@@ -1008,7 +952,7 @@ A factor of safety is introduced:
 
 $$
 P_{\mathrm{safe}}
-=
+\=
 \frac{P_{cr}}{N}
 $$
 
@@ -1033,10 +977,6 @@ P_{\mathrm{applied}}
 <
 \frac{P_{cr}}{N}
 $$
-
-**Figure 17** presents the concept of safe load and the relationship between buckling load and factor of safety.
-
-![Safe Buckling Load](figures/17_safe_buckling_load.png)
 
 ---
 
@@ -1161,7 +1101,7 @@ This provides a link between **FEM simulation results and engineering design ass
 
 $$
 \sigma_{\mathrm{allow}}
-=
+\=
 \frac{S_y}{N}
 $$
 
@@ -1169,7 +1109,7 @@ $$
 
 $$
 \sigma_{vm}
-=
+\=
 \sqrt{
 \frac{
 (\sigma_1-\sigma_2)^2+
@@ -1183,7 +1123,7 @@ $$
 
 $$
 \tau_{\max}
-=
+\=
 \frac{\sigma_1-\sigma_3}{2}
 $$
 
@@ -1191,7 +1131,7 @@ $$
 
 $$
 \sigma_r
-=
+\=
 \sigma_{\max}-\sigma_{\min}
 $$
 
@@ -1199,7 +1139,7 @@ $$
 
 $$
 \sigma_a
-=
+\=
 \frac{\sigma_{\max}-\sigma_{\min}}{2}
 $$
 
@@ -1207,7 +1147,7 @@ $$
 
 $$
 \sigma_m
-=
+\=
 \frac{\sigma_{\max}+\sigma_{\min}}{2}
 $$
 
@@ -1215,7 +1155,7 @@ $$
 
 $$
 R
-=
+\=
 \frac{\sigma_{\min}}{\sigma_{\max}}
 $$
 
@@ -1223,7 +1163,7 @@ $$
 
 $$
 K_I
-=
+\=
 Y\sigma\sqrt{\pi a}
 $$
 
@@ -1231,7 +1171,7 @@ $$
 
 $$
 P_{cr}
-=
+\=
 \frac{\pi^2EI}{(KL)^2}
 $$
 
@@ -1239,7 +1179,7 @@ $$
 
 $$
 P_{\mathrm{safe}}
-=
+\=
 \frac{P_{cr}}{N}
 $$
 
@@ -1247,7 +1187,7 @@ $$
 
 $$
 \frac{1}{N}
-=
+\=
 \frac{\sigma_m}{S_{ut}}
 +
 \frac{\sigma_a}{S_e}
@@ -1257,7 +1197,7 @@ $$
 
 $$
 \frac{1}{N}
-=
+\=
 \frac{\sigma_m}{S_y}
 +
 \frac{\sigma_a}{S_e}
@@ -1267,7 +1207,7 @@ $$
 
 $$
 \frac{1}{N}
-=
+\=
 \left(
 \frac{\sigma_m}{S_{ut}}
 \right)^2
@@ -1397,103 +1337,6 @@ Therefore, engineering failure assessment should use experimentally validated ma
 
 ---
 
-# 40. Future Extensions
-
-Future FEM projects can extend this study to:
-
-* Static failure analysis using ANSYS Mechanical
-* Nonlinear plasticity
-* Tresca vs. von-Mises comparison
-* Fatigue life prediction
-* Goodman fatigue analysis
-* Soderberg fatigue analysis
-* Gerber fatigue analysis
-* S–N curve implementation
-* Crack modeling
-* Stress intensity factor calculation
-* J-integral evaluation
-* Crack propagation simulation
-* Linear buckling analysis
-* Nonlinear buckling analysis
-* Imperfection sensitivity
-* Experimental validation
-
----
-
-# 41. Project Structure
-
-```text
-08_Failure_Analysis/
-│
-├── README.md
-│
-├── theory/
-│   ├── static_failure.md
-│   ├── failure_theories.md
-│   ├── fatigue.md
-│   ├── fracture_mechanics.md
-│   └── buckling.md
-│
-├── figures/
-│   ├── 01_introduction_to_failure_analysis.png
-│   ├── 02_ductile_material_failure.png
-│   ├── 03_brittle_material_failure.png
-│   ├── 04_theories_of_failure.png
-│   ├── 05_completely_reversed_stress.png
-│   ├── 06_fatigue_failure.png
-│   ├── 07_fatigue_life.png
-│   ├── 08_fracture_mechanics.png
-│   ├── 09_fatigue_design_philosophies.png
-│   ├── 10_life_estimation_methods.png
-│   ├── 11_endurance_limit.png
-│   ├── 12_sn_curve.png
-│   ├── 13_endurance_strength.png
-│   ├── 14_fatigue_stress_criteria.png
-│   ├── 15_goodman_diagram.png
-│   ├── 16_buckling_failure.png
-│   └── 17_safe_buckling_load.png
-│
-├── ansys/
-│   ├── static_failure/
-│   ├── fatigue/
-│   ├── fracture/
-│   └── buckling/
-│
-└── results/
-    ├── stress/
-    ├── fatigue/
-    ├── fracture/
-    └── buckling/
-```
-
----
-
-# 42. Figure Reference
-
-All 17 figures used in this study are organized as follows:
-
-| Figure    | Topic                                    |
-| --------- | ---------------------------------------- |
-| Figure 1  | Introduction to Failure Analysis         |
-| Figure 2  | Ductile Material Failure                 |
-| Figure 3  | Brittle Material Failure                 |
-| Figure 4  | Theories of Failure                      |
-| Figure 5  | Completely Reversed / Cyclic Stress      |
-| Figure 6  | Fatigue Failure                          |
-| Figure 7  | Fatigue Life                             |
-| Figure 8  | Fracture Mechanics and Crack Propagation |
-| Figure 9  | Fatigue Design Philosophies              |
-| Figure 10 | Fatigue Life Estimation Methods          |
-| Figure 11 | Endurance Limit                          |
-| Figure 12 | S–N Curve                                |
-| Figure 13 | Endurance Strength                       |
-| Figure 14 | Fatigue Failure Criteria                 |
-| Figure 15 | Goodman, Soderberg and Gerber Diagram    |
-| Figure 16 | Buckling Failure                         |
-| Figure 17 | Safe Buckling Load                       |
-
----
-
 # 43. Key Learnings
 
 This project demonstrates understanding of:
@@ -1567,31 +1410,6 @@ Otto von Guericke University Magdeburg
 * Fatigue Analysis
 * Fracture Mechanics
 * Buckling Analysis
-
----
-
-# References
-
-The theoretical concepts and figures in this project are based on the provided failure-analysis lecture/reference material covering:
-
-* Static failure
-* Ductile and brittle material behavior
-* Theories of failure
-* Fatigue failure
-* Fatigue life
-* Fracture mechanics
-* Fatigue design philosophies
-* S–N curves
-* Endurance limit
-* Goodman diagram
-* Buckling failure
-* Safe load estimation
-
-The provided material also references engineering resources including:
-
-* Simulate More / MSC Software material
-* Engineering Solutions fatigue and failure-analysis material
-* Classical strength-of-materials and machine-design failure criteria
 
 ---
 
