@@ -45,12 +45,6 @@ In the present model:
 5. A prescribed rotation is applied to the plate about the global **Z-axis**.
 6. The resulting mechanism motion is evaluated using probes and animation results.
 
-The basic mechanism arrangement is shown in **Figure 1**.
-
-![Scotch Yoke mechanism](figures/scotch_yoke.PNG)
-
-**Figure 1.** Scotch Yoke mechanism and material input used for the rigid-body dynamics study.
-
 ---
 
 # Objectives
@@ -125,312 +119,6 @@ The material properties shown in the supplied input figure are:
 | Density, \(\rho\) | 7850 kg/m³ |
 | Tensile Yield Strength | 250 MPa |
 
-![Material and mechanism input](figures/scotch_yoke.PNG)
-
-**Figure 2.** Structural Steel input and Scotch Yoke mechanism description.
-
----
-
-# Governing Equations
-
-## 1. Newton's Second Law
-
-The translational motion of a rigid body is governed by:
-
-\[
-\sum \mathbf{F}=m\mathbf{a}
-\]
-
-where:
-
-- \(\sum \mathbf{F}\) = resultant external force
-- \(m\) = mass
-- \(\mathbf{a}\) = translational acceleration
-
-For the mechanism components, constraint and joint forces are determined so that the prescribed motion and mechanical constraints are satisfied.
-
----
-
-# 2. Rotational Equation of Motion
-
-The rotational motion of a rigid body is governed by:
-
-\[
-\sum \mathbf{M}=\mathbf{I}\boldsymbol{\alpha}
-\]
-
-for a simplified principal-axis formulation.
-
-where:
-
-- \(\sum \mathbf{M}\) = resultant moment
-- \(\mathbf{I}\) = mass moment of inertia
-- \(\boldsymbol{\alpha}\) = angular acceleration
-
-For general three-dimensional rigid-body motion, the Newton-Euler equation is:
-
-\[
-\sum\mathbf{M}
-=
-\mathbf{I}\dot{\boldsymbol{\omega}}
-+
-\boldsymbol{\omega}\times(\mathbf{I}\boldsymbol{\omega})
-\]
-
-where:
-
-- \(\boldsymbol{\omega}\) = angular velocity
-- \(\dot{\boldsymbol{\omega}}\) = angular acceleration
-
----
-
-# 3. Angular Kinematics
-
-Angular displacement is:
-
-\[
-\theta=\theta_0+\omega_0t+\frac{1}{2}\alpha t^2
-\]
-
-Angular velocity is:
-
-\[
-\omega=\frac{d\theta}{dt}
-\]
-
-and angular acceleration is:
-
-\[
-\alpha=\frac{d\omega}{dt}
-\]
-
-For constant angular velocity:
-
-\[
-\alpha=0
-\]
-
-and therefore:
-
-\[
-\theta=\theta_0+\omega t
-\]
-
----
-
-# 4. Prescribed Rotation in the ANSYS Model
-
-The supplied ANSYS joint-rotation result shows a linear rotational input from approximately:
-
-\[
-\theta=0^\circ
-\]
-
-to:
-
-\[
-\theta=360^\circ
-\]
-
-over:
-
-\[
-T=360\;s
-\]
-
-Therefore, the prescribed angular velocity is approximately:
-
-\[
-\omega=\frac{360^\circ}{360\;s}=1^\circ/s
-\]
-
-Converting to radians:
-
-\[
-\omega=\frac{\pi}{180}\;rad/s
-\]
-
-or approximately:
-
-\[
-\omega=0.01745\;rad/s
-\]
-
-The corresponding rotational input is shown in **Figure 3**.
-
-![Prescribed joint rotation](figures/joint_rotation.PNG)
-
-**Figure 3.** Prescribed rotational motion of the plate from 0° to 360°.
-
----
-
-# 5. Scotch Yoke Kinematics
-
-For an ideal Scotch Yoke mechanism, let:
-
-- \(r\) = eccentricity/crank radius
-- \(\theta\) = crank angle
-- \(x\) = slider displacement
-
-A common idealized relationship is:
-
-\[
-x=r\cos\theta
-\]
-
-Depending on the selected coordinate origin and phase convention, an equivalent sine form may be used:
-
-\[
-x=r\sin\theta
-\]
-
-The choice of sine or cosine only changes the phase reference.
-
----
-
-# 6. Slider Velocity
-
-For:
-
-\[
-x=r\cos\theta
-\]
-
-the velocity is:
-
-\[
-v=\frac{dx}{dt}
-\]
-
-Therefore:
-
-\[
-v=-r\sin\theta\frac{d\theta}{dt}
-\]
-
-or:
-
-\[
-\boxed{v=-r\omega\sin\theta}
-\]
-
-For constant angular velocity, the maximum theoretical slider speed is:
-
-\[
-|v|_{\max}=r\omega
-\]
-
----
-
-# 7. Slider Acceleration
-
-Differentiating velocity:
-
-\[
-a=\frac{dv}{dt}
-\]
-
-gives:
-
-\[
-\boxed{a=-r\omega^2\cos\theta}
-\]
-
-for constant \(\omega\).
-
-The maximum theoretical acceleration is:
-
-\[
-|a|_{\max}=r\omega^2
-\]
-
----
-
-# 8. Relationship Between Rotation and Translation
-
-The fundamental motion conversion can therefore be summarized as:
-
-\[
-\boxed{x=r\cos\theta}
-\]
-
-\[
-\boxed{v=-r\omega\sin\theta}
-\]
-
-\[
-\boxed{a=-r\omega^2\cos\theta}
-\]
-
-This is the characteristic kinematic behavior of the ideal Scotch Yoke mechanism.
-
----
-
-# 9. Dynamic Equilibrium
-
-The general rigid/deformable dynamic equilibrium equation can be written as:
-
-\[
-\mathbf{M}\ddot{\mathbf{u}}
-+
-\mathbf{C}\dot{\mathbf{u}}
-+
-\mathbf{K}\mathbf{u}
-=
-\mathbf{F}_{ext}
-\]
-
-where:
-
-- \(\mathbf{M}\) = mass matrix
-- \(\mathbf{C}\) = damping matrix
-- \(\mathbf{K}\) = stiffness matrix
-- \(\mathbf{u}\) = displacement vector
-- \(\dot{\mathbf{u}}\) = velocity vector
-- \(\ddot{\mathbf{u}}\) = acceleration vector
-- \(\mathbf{F}_{ext}\) = external force vector
-
-For an ideal rigid-body model, structural deformation is not the primary degree of freedom; instead, the equations of motion and constraint equations govern the mechanism motion.
-
----
-
-# 10. Constraint Equations
-
-Joints impose kinematic constraints on the relative motion of connected bodies.
-
-In generalized form:
-
-\[
-\mathbf{g}(\mathbf{q},t)=0
-\]
-
-where:
-
-- \(\mathbf{q}\) = generalized coordinates
-- \(\mathbf{g}\) = constraint equations
-
-The corresponding constrained equations of motion may be represented as:
-
-\[
-\mathbf{M}\ddot{\mathbf{q}}
-+
-\mathbf{C}\dot{\mathbf{q}}
-+
-\mathbf{K}\mathbf{q}
-+
-\mathbf{G}^T\boldsymbol{\lambda}
-=
-\mathbf{Q}
-\]
-
-where:
-
-- \(\mathbf{G}\) = constraint Jacobian
-- \(\boldsymbol{\lambda}\) = Lagrange multipliers / constraint reactions
-- \(\mathbf{Q}\) = generalized applied forces
-
-The joint definitions in ANSYS enforce the permitted degrees of freedom between the mechanism components.
-
 ---
 
 # Joint and Connection Definitions
@@ -448,10 +136,6 @@ The supplied ANSYS figure shows all translational and rotational degrees of free
 - RY
 - RZ
 
-![Fixed joint](figures/fixed_joint_ground_to_cylinder.PNG)
-
-**Figure 4.** Fixed joint between ground and cylinder.
-
 ---
 
 # Revolute Joint - Ground to Plate
@@ -464,10 +148,6 @@ The supplied ANSYS definition shows:
 - Degree of freedom: Rotation Z
 - Prescribed rotational motion: 0° → 360°
 
-![Revolute joint](figures/revolute_joint_ground_to_plate.PNG)
-
-**Figure 5.** Revolute joint between ground and plate.
-
 ---
 
 # Translational Joint - Connecting Rod to Cylinder
@@ -475,10 +155,6 @@ The supplied ANSYS definition shows:
 A **Translational Joint** is used between the connecting rod and cylinder.
 
 The joint permits relative translation along the defined translational axis while restricting the other relative degrees of freedom.
-
-![Translational joint](figures/translational_joint_connecting_rod_to_cylinder.PNG)
-
-**Figure 6.** Translational joint connecting the rod to the cylinder.
 
 ---
 
@@ -490,10 +166,6 @@ The supplied ANSYS image identifies:
 
 - Connecting rod as the contact body
 - Plate as the target body
-
-![No Separation connection](figures/no_separation_contact_connecting_rod_to_plate.PNG)
-
-**Figure 7.** No Separation connection between connecting rod and plate.
 
 The connection prevents separation while allowing the prescribed mechanism motion through the remaining compatible degrees of freedom.
 
@@ -515,11 +187,6 @@ The rigid dynamics analysis is configured for:
 | Correction Type | Program Controlled |
 | Assembly Type | Program Controlled |
 
-The supplied analysis-settings figure is shown below.
-
-![Analysis settings](figures/analysis_settings.PNG)
-
-**Figure 8.** ANSYS Rigid Dynamics analysis settings.
 
 ---
 
@@ -567,9 +234,6 @@ The deformation probe result shows the periodic motion associated with the rotat
 
 The supplied plot shows a repeating response over the 360-second simulation.
 
-![Deformation probe](figures/deformation_probe.PNG)
-
-**Figure 9.** Deformation probe response over the complete rotational cycle.
 
 The response exhibits the expected periodic nature of a rotary-to-reciprocating mechanism.
 
@@ -586,10 +250,6 @@ The plotted response is on the order of:
 \]
 
 which is effectively zero at engineering scale.
-
-![Joint probe](figures/joint_probe.PNG)
-
-**Figure 10.** Joint probe response during the rigid dynamics simulation.
 
 This indicates that the monitored joint quantity does not exhibit a significant net force imbalance in the displayed probe result.
 
@@ -609,12 +269,6 @@ and:
 u_{min}=0\;mm
 \]
 
-as displayed in the supplied result.
-
-![Total deformation](figures/total_deformation.PNG)
-
-**Figure 11.** Total deformation at the end of the rigid dynamics simulation.
-
 The corresponding animation is provided in:
 
 ```text
@@ -629,17 +283,6 @@ The animation can be used to observe the periodic mechanism motion throughout th
 
 The velocity probe shows a periodic velocity response corresponding to the prescribed rotation of the Scotch Yoke mechanism.
 
-The supplied result displays velocity values approximately within:
-
-\[
--0.39983\;mm/s
-\leq v \leq
-0.39983\;mm/s
-\]
-
-![Velocity probe](figures/velocity_probe.PNG)
-
-**Figure 12.** Velocity probe response over the 360-second simulation.
 
 The velocity changes sign as the reciprocating member reverses direction.
 
@@ -774,113 +417,6 @@ The displayed total deformation result should consequently be interpreted in the
 
 ---
 
-# Verification of Mechanism Motion
-
-The mechanism can be verified against the ideal Scotch Yoke equations.
-
-For a prescribed constant angular velocity:
-
-\[
-\theta=\omega t
-\]
-
-Substituting into the ideal displacement equation:
-
-\[
-x=r\cos(\omega t)
-\]
-
-gives a sinusoidal slider displacement.
-
-The corresponding velocity is:
-
-\[
-v=-r\omega\sin(\omega t)
-\]
-
-and acceleration:
-
-\[
-a=-r\omega^2\cos(\omega t)
-\]
-
-The ANSYS probe results should therefore exhibit:
-
-- Periodic displacement
-- Periodic velocity
-- Velocity reversal at the turning points
-- Repetition after one complete revolution
-
-The supplied deformation and velocity plots demonstrate this periodic behavior.
-
----
-
-# Energy Relations
-
-For rigid-body dynamics, translational kinetic energy is:
-
-\[
-T_{trans}=\frac{1}{2}mv^2
-\]
-
-Rotational kinetic energy is:
-
-\[
-T_{rot}=\frac{1}{2}\boldsymbol{\omega}^T\mathbf{I}\boldsymbol{\omega}
-\]
-
-For rotation about a principal axis:
-
-\[
-T_{rot}=\frac{1}{2}I\omega^2
-\]
-
-The total kinetic energy can therefore be represented as:
-
-\[
-T=T_{trans}+T_{rot}
-\]
-
-Potential energy, when relevant, can be represented by:
-
-\[
-V=mgh
-\]
-
-and the mechanical energy is:
-
-\[
-E=T+V
-\]
-
-For an ideal system without external work, dissipation, or numerical losses, total mechanical energy is conserved.
-
----
-
-# Angular Momentum
-
-The angular momentum of a rigid body is:
-
-\[
-\mathbf{H}=\mathbf{I}\boldsymbol{\omega}
-\]
-
-For a principal-axis rotation:
-
-\[
-H=I\omega
-\]
-
-The moment equation can also be expressed as:
-
-\[
-\sum\mathbf{M}=\frac{d\mathbf{H}}{dt}
-\]
-
-This relationship is fundamental for analyzing the rotational component of the Scotch Yoke mechanism.
-
----
-
 # Applications
 
 The same rigid-body dynamics methodology can be applied to:
@@ -914,26 +450,6 @@ The present analysis has several modeling limitations:
 - The displayed deformation result should not be interpreted as a conventional flexible-body stress analysis without additional structural modeling.
 
 Therefore, the results are primarily intended for **educational, kinematic, and simulation-portfolio purposes**.
-
----
-
-# Future Improvements
-
-Possible extensions include:
-
-- Introduce flexible-body components.
-- Calculate joint reaction forces and moments at all joints.
-- Include friction in the joints.
-- Include damping.
-- Compare ANSYS results against analytical Scotch Yoke equations.
-- Calculate analytical displacement, velocity, and acceleration histories.
-- Perform sensitivity studies for different crank radii.
-- Perform simulations at different angular velocities.
-- Investigate dynamic balancing.
-- Include bearing and joint clearances.
-- Perform transient structural analysis using the rigid-dynamics motion as input.
-- Evaluate stresses in the connecting rod and plate.
-- Perform fatigue analysis for cyclic operation.
 
 ---
 
@@ -1021,54 +537,6 @@ Compare with Scotch Yoke Kinematics
 └── results/
     └── total_deformation.mp4
 ```
-
----
-
-# Figures Included
-
-### Figure 1 — Scotch Yoke Geometry
-
-![Scotch Yoke geometry](figures/scotch_yoke.PNG)
-
-### Figure 2 — Deformation Probe
-
-![Deformation probe](figures/deformation_probe.PNG)
-
-### Figure 3 — Joint Probe
-
-![Joint probe](figures/joint_probe.PNG)
-
-### Figure 4 — Total Deformation
-
-![Total deformation](figures/total_deformation.PNG)
-
-### Figure 5 — Velocity Probe
-
-![Velocity probe](figures/velocity_probe.PNG)
-
-### Figure 6 — Fixed Joint: Ground to Cylinder
-
-![Fixed joint](figures/fixed_joint_ground_to_cylinder.PNG)
-
-### Figure 7 — Revolute Joint: Ground to Plate
-
-![Revolute joint](figures/revolute_joint_ground_to_plate.PNG)
-
-### Figure 8 — Translational Joint: Connecting Rod to Cylinder
-
-![Translational joint](figures/translational_joint_connecting_rod_to_cylinder.PNG)
-
-### Figure 9 — No Separation: Connecting Rod to Plate
-
-![No separation](figures/no_separation_contact_connecting_rod_to_plate.PNG)
-
-### Figure 10 — Analysis Settings
-
-![Analysis settings](figures/analysis_settings.PNG)
-
-### Figure 11 — Prescribed Joint Rotation
-
-![Joint rotation](figures/joint_rotation.PNG)
 
 ---
 
@@ -1168,18 +636,3 @@ SOFTWARE.
 ```
 
 ---
-
-# Disclaimer
-
-This project is intended for **educational, research, and engineering-portfolio purposes**.
-
-The presented simulation results should not be used directly for safety-critical mechanical design without appropriate:
-
-- Experimental validation
-- Accurate geometry and mass-property verification
-- Joint/friction characterization
-- Mesh or model verification where applicable
-- Solver verification
-- Design-code checks
-- Independent engineering review
-
