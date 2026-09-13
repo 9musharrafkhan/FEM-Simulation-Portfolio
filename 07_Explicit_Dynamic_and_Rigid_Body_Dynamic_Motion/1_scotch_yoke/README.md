@@ -190,39 +190,67 @@ The rigid dynamics analysis is configured for:
 
 ---
 
-# Time Integration
+## Time Integration
 
-The simulation divides the total analysis duration into 360 time increments.
+The simulation divides the total analysis duration into **360 time increments**.
 
-With:
+With a constant time step of:
 
-\[
-\Delta t=1\;s
-\]
+$$
+\Delta t = 1\;s
+$$
 
-the simulation progresses as:
+the simulation progresses through the time points:
 
-\[
-t_0,\;t_1,\;t_2,\ldots,t_{360}
-\]
+$$
+t_0,\;t_1,\;t_2,\;\ldots,\;t_{360}
+$$
 
-with:
+where:
 
-\[
-t_n=n\Delta t
-\]
+$$
+t_n = n\Delta t
+$$
 
-The prescribed rotation increases approximately linearly with time:
+Therefore, the total simulation time is:
 
-\[
-\theta(t)=\omega t
-\]
+$$
+T = 360\Delta t = 360\;s
+$$
 
-for:
+The prescribed rotational motion increases approximately linearly with time:
 
-\[
-0\leq t\leq360\;s
-\]
+$$
+\theta(t) = \omega t
+$$
+
+For the present simulation:
+
+$$
+\omega = \frac{360^\circ}{360\;s}
+= 1^\circ/s
+$$
+
+or, in radians per second:
+
+$$
+\omega = \frac{\pi}{180}\;rad/s
+\approx 0.01745\;rad/s
+$$
+
+Thus, over the complete simulation:
+
+$$
+0 \leq t \leq 360\;s
+$$
+
+and:
+
+$$
+0^\circ \leq \theta \leq 360^\circ
+$$
+
+The ANSYS analysis therefore represents **one complete rotational cycle** of the Scotch Yoke mechanism.
 
 ---
 
@@ -295,35 +323,79 @@ This is characteristic of Scotch Yoke motion:
 
 ---
 
-# Expected Motion Characteristics
+## Expected Motion Characteristics
 
-For an ideal Scotch Yoke mechanism, the slider displacement is sinusoidal.
+For an ideal Scotch Yoke mechanism, the slider displacement follows a sinusoidal relationship with the crank angle.
 
-For:
+For the selected phase convention:
 
-\[
-x=r\cos\theta
-\]
+$$
+x = r\cos\theta
+$$
 
-the displacement reaches its extreme values at:
+where:
 
-\[
-\theta=0^\circ,\;180^\circ,\;360^\circ
-\]
+- $x$ = slider displacement
+- $r$ = crank/eccentric radius
+- $\theta$ = crank angle
+
+The displacement reaches its extreme positions at:
+
+$$
+\theta = 0^\circ,\;180^\circ,\;360^\circ
+$$
+
+The corresponding slider velocity is:
+
+$$
+v = \frac{dx}{dt}
+$$
+
+Therefore:
+
+$$
+v = -r\omega\sin\theta
+$$
 
 The velocity becomes zero at the displacement extrema:
 
-\[
-\theta=0^\circ,\;180^\circ,\;360^\circ
-\]
+$$
+\theta = 0^\circ,\;180^\circ,\;360^\circ
+$$
 
 and reaches its maximum magnitude near:
 
-\[
-\theta=90^\circ,\;270^\circ
-\]
+$$
+\theta = 90^\circ,\;270^\circ
+$$
 
-This produces the characteristic reciprocating motion observed in the ANSYS animation and probe results.
+The maximum theoretical slider velocity is:
+
+$$
+|v|_{\max} = r\omega
+$$
+
+The slider acceleration is obtained by differentiating the velocity:
+
+$$
+a = \frac{dv}{dt}
+$$
+
+giving:
+
+$$
+a = -r\omega^2\cos\theta
+$$
+
+Thus, the Scotch Yoke produces the characteristic **reciprocating motion** in which:
+
+- Displacement varies sinusoidally.
+- Velocity changes sign as the slider reverses direction.
+- Velocity is zero at the turning points.
+- Maximum velocity occurs approximately halfway between the turning points.
+- The motion repeats after one complete $360^\circ$ revolution.
+
+This expected periodic behavior is consistent with the **ANSYS deformation and velocity probe results** presented in the corresponding figures.
 
 ---
 
@@ -510,32 +582,6 @@ Animate Mechanism Motion
           │
           ▼
 Compare with Scotch Yoke Kinematics
-```
-
----
-
-# Repository Structure
-
-```text
-07_1_scotch_yoke_rigid_dynamics_analysis/
-│
-├── README.md
-│
-├── figures/
-│   ├── scotch_yoke.PNG
-│   ├── deformation_probe.PNG
-│   ├── joint_probe.PNG
-│   ├── total_deformation.PNG
-│   ├── velocity_probe.PNG
-│   ├── fixed_joint_ground_to_cylinder.PNG
-│   ├── revolute_joint_ground_to_plate.PNG
-│   ├── translational_joint_connecting_rod_to_cylinder.PNG
-│   ├── no_separation_contact_connecting_rod_to_plate.PNG
-│   ├── analysis_settings.PNG
-│   └── joint_rotation.PNG
-│
-└── results/
-    └── total_deformation.mp4
 ```
 
 ---
