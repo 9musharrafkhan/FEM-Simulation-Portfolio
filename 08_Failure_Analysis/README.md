@@ -89,10 +89,6 @@ Typical failure mechanisms include:
 
 A failure analysis determines the loading condition under which a component may lose its intended function or structural integrity.
 
-**Figure 1** introduces the major categories of failure considered in this project.
-
-![Introduction to Failure Analysis](figures/01_introduction_to_failure_analysis.png)
-
 ---
 
 # 2. Static Failure
@@ -115,23 +111,11 @@ $$
 
 The allowable stress is generally obtained by applying a factor of safety.
 
-**Figure 2** illustrates static failure and the concept of failure/design/working/allowable stress.
-
-![Ductile Material Failure](figures/02_ductile_material_failure.png)
-
 ---
 
 # 3. Failure Stress and Factor of Safety
 
 For a ductile material, the allowable stress can be calculated from the yield strength:
-
-$$
-\sigma_{\mathrm{allowable}}
-=
-\frac{S_y}{N}
-$$
-
-where:
 
 - $S_y$ = Yield strength
 - $N$ = Factor of safety
@@ -169,11 +153,9 @@ For a ductile material:
 
 $$
 \sigma_{\mathrm{allowable}}
-=
+\=
 \frac{S_y}{N}
 $$
-
-**Figure 2** shows the stress-strain behavior of a ductile material and identifies the yield and ultimate points.
 
 ---
 
@@ -197,7 +179,7 @@ The corresponding allowable stress can be expressed as:
 
 $$
 \sigma_{\mathrm{allowable}}
-=
+\=
 \frac{S_{ut}}{N}
 $$
 
