@@ -396,7 +396,7 @@ For the Goodman relation:
 
 $$
 \frac{1}{N}
-=
+\=
 \frac{\sigma_m}{S_{ut}}
 +
 \frac{\sigma_a}{S_e}
