@@ -49,8 +49,6 @@ The source material identifies the following important outputs:
 -   Structural response under different thermal loading conditions
 -   Thermal stress
 
-![Introduction to Thermal Analysis](14954.jpg)
-
 ------------------------------------------------------------------------
 
 ## 2. Types of Thermal Analysis
@@ -108,8 +106,6 @@ In transient thermal analysis:
 Transient analysis is therefore used when temperature and heat-transfer
 behaviour changes with time.
 
-![Types of Thermal Analysis](14955.jpg)
-
 ------------------------------------------------------------------------
 
 ## 3. Structural vs. Thermal FEA
@@ -163,8 +159,6 @@ The source also identifies the associated units:
   Temperature            K
   Heat flux              W/m²
 
-![Structural vs Thermal FEA](14956.jpg)
-
 ------------------------------------------------------------------------
 
 # 4. Transient Thermal Analysis
@@ -188,8 +182,6 @@ The source material identifies three main objectives:
 -   Heat-flux distribution
 -   Structural response under different thermal loading conditions
 -   Thermal stress
-
-![Transient Thermal Analysis](14957.jpg)
 
 ------------------------------------------------------------------------
 
@@ -216,8 +208,6 @@ The listed outputs are:
 
 -   Total deformation
 -   Thermal stress
-
-![Coefficient of Thermal Expansion](14958.jpg)
 
 ------------------------------------------------------------------------
 
@@ -282,8 +272,6 @@ Important thermal quantities for such an analysis include:
 -   Heat flux
 -   Film coefficient
 -   Temperature distribution
-
-![Heat Transfer Pipe](14960.jpg)
 
 ------------------------------------------------------------------------
 
@@ -550,44 +538,7 @@ project, the main learning objectives are:
 
 ------------------------------------------------------------------------
 
-# 16. Project Structure
-
-A recommended repository structure is:
-
-``` text
-09_Thermal_Analysis/
-│
-├── README.md
-│
-├── images/
-│   ├── 14954.jpg
-│   ├── 14955.jpg
-│   ├── 14956.jpg
-│   ├── 14957.jpg
-│   ├── 14958.jpg
-│   └── 14960.jpg
-│
-├── ansys/
-│   ├── thermal_analysis/
-│   ├── transient_thermal/
-│   └── thermal_structural/
-│
-├── geometry/
-│   └── models/
-│
-├── materials/
-│   └── thermal_properties/
-│
-└── results/
-    ├── temperature/
-    ├── heat_flux/
-    ├── deformation/
-    └── thermal_stress/
-```
-
-------------------------------------------------------------------------
-
-# 17. Key Concepts
+# 16. Key Concepts
 
 ### Thermal FEA
 
@@ -616,48 +567,7 @@ Describes the evolution of temperature and heat flux with time.
 
 ------------------------------------------------------------------------
 
-# 18. Skills Demonstrated
-
-This project demonstrates knowledge of:
-
--   Thermal Finite Element Analysis
--   ANSYS Mechanical
--   Steady-state thermal analysis
--   Transient thermal analysis
--   Linear thermal analysis
--   Nonlinear thermal analysis
--   Temperature distribution
--   Heat-flux analysis
--   Thermal conductivity
--   Convective heat transfer
--   Film coefficient
--   Coefficient of thermal expansion
--   Thermal deformation
--   Thermal stress
--   Thermal-structural coupling
--   Engineering post-processing
-
-------------------------------------------------------------------------
-
-# 19. Portfolio / CV Description
-
-### Thermal Analysis --- ANSYS
-
--   Studied thermal FEA fundamentals including **linear, nonlinear,
-    steady-state, and transient thermal analysis**.
--   Investigated temperature distribution, heat flux, thermal stress,
-    and thermally induced structural response.
--   Applied thermal-analysis concepts to **transient heating/cooling,
-    coefficient of thermal expansion, composite-bar behaviour, and
-    heat-transfer pipe analysis**.
--   Studied the roles of **thermal conductivity, heat flux, and film
-    coefficient** in heat-transfer problems.
--   Developed understanding of thermal-to-structural coupling and the
-    effect of constrained thermal expansion.
-
-------------------------------------------------------------------------
-
-# 20. Conclusion
+# 17. Conclusion
 
 Thermal analysis provides a numerical approach for understanding how
 engineering components respond to temperature and heat-transfer
