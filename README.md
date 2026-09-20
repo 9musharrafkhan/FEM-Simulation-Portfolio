@@ -8,7 +8,6 @@ This repository contains a comprehensive collection of **Finite Element Method (
 - Python
 - ANSYS Mechanical
 - ANSYS APDL
-- MPI / Parallel Computing
 
 The portfolio combines **FEM theory, numerical methods, scientific programming, and engineering simulation** to demonstrate the complete workflow from mathematical formulation and discretization to numerical solution, post-processing, verification, and interpretation of results.
 
@@ -37,18 +36,8 @@ The main objectives of this portfolio are to develop and demonstrate a strong un
 
 - MATLAB
 - Python
-- MPI
 - Parallel Computing
 - Scientific Computing
-
-## Python Libraries
-
-- NumPy
-- SciPy
-- Matplotlib
-- mpi4py
-- meshio
-- PyVista
 
 ## CAE / FEM Software
 
@@ -367,26 +356,6 @@ where:
 
 ---
 
-# 9. High Performance Computing
-
-The portfolio also explores the computational aspects of FEM and parallel numerical methods.
-
-Topics include:
-
-- Parallel FEM assembly
-- MPI-based computation
-- Element-level parallelization
-- Distributed computation
-- Parallel matrix operations
-- Scalability studies
-- Strong scaling
-- Weak scaling
-- Performance analysis
-
-The general motivation is to reduce computational time by distributing independent FEM operations across multiple processing units.
-
----
-
 # Verification and Validation
 
 Verification and validation are important parts of the portfolio.
@@ -451,15 +420,15 @@ FEM-Simulation-Portfolio/
 │   ├── README.md
 │   └── ...
 │
-├── 03_Axisymmetric_FEM_Analysis
+├── 03_Axisymmetric_FEM_Analysis/
 │   ├── README.md
 │   └── ...
 │
-├── 04_Plane_Stress_and_Strain_Analysis
+├── 04_Plane_Stress_and_Strain_Analysis/
 │   ├── README.md
 │   └── ...
 │
-├── 05_Contact_Analysis
+├── 05_Contact_Analysis/
 │   ├── README.md
 │   └── ...
 │
@@ -467,9 +436,18 @@ FEM-Simulation-Portfolio/
 │   ├── README.md
 │   └── ...
 │
-└── 07_Explicit_Dynamics_and_Rigid_Body_Dynamic_Motion/
+├── 07_Explicit_Dynamics_and_Rigid_Body_Dynamic_Motion/
+│   ├── README.md
+│   └── ...
+│
+├── 08_Failure_Analysis/
+│   ├── README.md
+│   └── ...
+│
+└── 09_Thermal_Analysis/
     ├── README.md
     └── ...
+
 ```
 
 ---
